@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학교 성과 개요</title>
+  <style>
+    :root {
+      --main-red: #dd2026;
+    }
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      padding: 40px;
+    }
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+    }
+    .card {
+      position: relative;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: var(--bg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 0;
+    }
+    .card h2,
+    .card ul,
+    .card p,
+    .card table,
+    .card img {
+      position: relative;
+      z-index: 1;
+    }
+    .card h2 {
+      font-size: 1.2rem;
+      color: var(--main-red);
+      margin-bottom: 10px;
+    }
+    .ranking-list,
+    .paper-list,
+    .employment-table,
+    .professor-list,
+    .research-list {
+      padding-left: 20px;
+    }
+    .chart-img {
+      width: 100%;
+      height: auto;
+      opacity: 0;
+    }
+    .highlight {
+      color: var(--main-red);
+      font-weight: bold;
+    }
+    .trophy {
+      text-align: center;
+    }
+    .trophy img {
+      width: 80px;
+    }
+    .small-gray {
+      font-size: 0.8rem;
+      color: gray;
+    }
+    .small-black {
+      font-size: 0.8rem;
+      color: black;
+    }
+    .company-list {
+      font-size: 0.8rem;
+    }
+ 
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="card" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/image1.png')">
+      <h2>기계공학부 경쟁력 한눈에 보기</h2>
+      <ul class="ranking-list">
+        <li><strong>2025 QS 세계대학평가</strong> – 기계공학 분야 국내 <strong style="color: #dd2026;">국립대 4위</strong></li>
+        <li><strong>4단계 BK21 사업 연속 선정</strong> – 학부/대학원 교육·연구 지원을 통한 지속적인 인력양성 역량 강화</li>
+        <li><strong>산학협력 기반 실무 교육</strong> – 국내외 기업과 공동 연구 및 인재 양성</li> 
+        (현대자동차, LG전자, 현대중공업 등)
+        <li><strong>글로벌 무대에서의 창업 및 기술혁신</strong> – CES 등 세계적 전시회에서 창업성과 인정</li>
+        <li><strong>우수한 연구 역량 갖춘 24명의 교수진</strong> – UCLA 등과의 국제공동연구</li>  
+          세계 상위 2% 연구자 등 세계적 교육·연구 역량 보유
+      </ul>
+    </div>
+
+    <div class="card" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/image2.png')">
+      <h2>우수 연구 역량</h2>
+       <ul class="paper-list">
+        <li><strong>최근 5년간 SCI(E) 논문</strong> <strong style="color: #dd2026;">800편</strong> 이상 게재
+        <ul>
+          <li>2024년: 171편</li>
+          <li>2023년: 200편</li>
+          <li>2022년: 173편</li>
+          <li>2021년: 151편</li>
+          <li>2020년: 153편</li>
+        </ul>
+      </li>
+        <li><strong>국책과제</strong><span class="small-black">(과기부·산업부 등)</span> 및 <strong>인력양성사업</strong><span class="small-black">(RISE,BK21 등)</span>  수행 중</li>
+        <li><strong>로봇, 미래모빌리티, 반도체, 에너지</strong> 분야에서 우수한 연구성과 확보</li>
+         </ul>
+    </div>
+    <a class="card" href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1754034861" target="_blank" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/image3.png')">
+      <h2>진출 분야</h2>
+      <ul class="employment-table">
+      <p style="color: #000;">
+        <strong>로봇</strong> <span class="company-list">(현대로보틱스, 한국로봇융합연구원)</span> / <strong>자동차</strong> <span class="company-list">(현대자동차, 현대모비스, 만도)</span><br>
+        <strong>에너지</strong> <span class="company-list">(한국전력, 한국가스공사, 두산중공업)</span> <br>
+        <strong>항공·방산</strong> <span class="company-list">(한화에어로스페이스, LIG넥스원, KAI, 국방과학연구소)</span><br>
+        <strong>반도체</strong> <span class="company-list">(삼성전자, SK하이닉스)</span> / <strong>조선·해양</strong> <span class="company-list">(삼성중공업, HD현대)</span>
+      </p>
+      </ul>
+    </a>
+
+    <a class="card" href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1754034861" target="_blank" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/image4.png')">
+      <h2>졸업생 취업 현황</h2>
+      <ul class="employment-table">
+      <li><strong>학부 졸업생 취업률</strong> <strong style="color: #dd2026;"> 85% </strong><span class="small-gray">(22년 통계 자료 기준)</span> </li>
+      <li> <strong>학부/대학원 취창업 현황</strong></li>
+       대기업 : <strong style="color: #dd2026;">N명</strong>, 정부출연연구소 <strong style="color: #dd2026;">N명</strong>, 중견/중소기업 <strong style="color: #dd2026;">N명</strong>, 창업 <strong style="color: #dd2026;">N명</strong>
+      <li><strong>졸업생 교수 임용 현황</strong> - 국내외 주요 대학에 <strong style="color: #dd2026;">N명</strong> 임용</li>
+      </ul>
+    </a>
+
+    <div class="card" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/image5.png')">
+      <h2>연구기관</h2>
+      <p style="margin-top: 10px; font-weight: bold;">"미래 산업을 선도하는 기계공학 연구센터"</p>
+      <ul class="research-list">
+        <li><a href="https://imet.knu.ac.kr/" style="color: #003366; text-decoration: underline;" target="_blank">기계 연구소</a></li>
+        <li><a href="https://home.knu.ac.kr/HOME/acoustic/index.htm" style="color: #003366; text-decoration: underline;" target="_blank">음향공학연구소</a></li>
+        <li><a href="https://kddm.knu.ac.kr/" style="color: #003366; text-decoration: underline;" target="_blank">디지털설계및생산기술연구소</a></li>
+        <li><a href="https://iedt.knu.ac.kr/" style="color: #003366; text-decoration: underline;" target="_blank">공학설계연구소</a></li>
+      </ul>
+    </div>
+
+    <div class="card trophy" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/image6.png')">
+      <h2>대학원 장학금</h2>
+      <p style="color: #000;"><strong>"학비 걱정 없는 기계공학부"</strong></p>
+      <p style="color: #000;">장학금 수혜율 <strong>66.5%</strong>, 1인당 평균 수혜금 <strong>154만원</strong></p>
+      <p style="color: #000;">등록금 대비 수혜율 <strong>65%</strong></p>
+    </div>
+
+  </div>
+</body>
+</html>
