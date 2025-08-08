@@ -65,7 +65,7 @@
       display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; align-items:center
     }
     .logos .logo-box{
-      width:96px; height:48px; border-radius:10px; background:#eef2f7; border:1px solid #ccd4dd; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px
+      width:auto; height:30px; padding:10px; border-radius:10px; background:#eef2f7; border:1px solid #ccd4dd; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px
     }
     .stat-cards{
       display:grid; gap:12px; grid-template-columns:repeat(12,1fr); margin-top:8px
@@ -105,7 +105,7 @@
       <h1>기계공학부 경쟁력 – 세부 페이지</h1>
       <p>한눈에 보기 카드의 항목을 세부 지표와 사례 중심으로 정리했습니다. 필요 시 수치·근거 링크를 업데이트하세요.</p>
       <div class="badges">
-        <span class="badge">2025 THE 기계공학 국내 국립대 2위</span>
+        <span class="badge">2025 THE 공학분야 국내 국립대 2위</span>
         <span class="badge">BK21 연속 선정</span>
         <span class="badge">현대중공업·LG전자 산학 협력</span>
         <span class="badge">CES 등 국제 전시 진출</span>
@@ -119,24 +119,29 @@
 
     <section id="rank" class="grid" aria-labelledby="rank-title">
       <article class="card">
-        <h2 id="rank-title">2025 THE 세계대학평가 – 기계공학 분야 국내 국립대 2위</h2>
+        <h2 id="rank-title">2025 THE 세계대학평가 – 공학분야 국내 국립대 2위</h2>
         <p class="sub">연구 영향력·산학수입·국제화 등 다중 지표 기반</p>
         <div class="kpi">
-          <div class="pill">연구 영향력(예: Field-Weighted) <strong class="ok">상위권</strong></div>
-          <div class="pill">산학 수입(Industry Income) <strong>우수</strong></div>
+          <div class="pill">세계 <strong class="ok">300위권 진입</strong></div>
           <div class="pill">국제 공동연구 비중 <strong>증가</strong></div>
+          <div class="pill">국제화 수준 <strong>국내 국립대 1위</strong></div>
+
         </div>
+        <!--
         <ul class="list">
           <li><strong>핵심 메시지:</strong> 기계공학 분야에서 국내 국립대 기준 <b>2위</b> 성과.</li>
           <li><strong>활용 포인트:</strong> 학부 홍보물, 홈페이지 메인 배너, 입학설명회 슬라이드.</li>
           <li><strong>주의:</strong> 공식 순위표와 지표 값(년도·버전)을 주기적으로 갱신하세요.</li>
         </ul>
-        <p class="note">※ 근거 링크/이미지: <em>향후 공식 발표 URL 또는 캡처 추가</em></p>
+         -->
+        <p class="note">※ 근거 링크/이미지
+            <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/comp/2025THE.png" alt="2025 THE 세계대학평가 순위 이미지" style="max-width:100%; border:1px solid #ccd4dd; border-radius:8px; margin-top:8px;" />
+        </p>
         <div class="stat-cards">
           <div class="stat">
             <h3>핵심 지표(예시)</h3>
             <div class="v">Top 2 (국립대)</div>
-            <div class="note">지표 범위: 2025 THE by subject – Mechanical Engineering</div>
+            <div class="note">지표 범위: 2025 THE by subject – Engineering</div>
           </div>
           <div class="stat">
             <h3>최근 3년 추세(예시)</h3>
@@ -154,7 +159,7 @@
         <ul class="list">
           <li><strong>성과:</strong> BK21(4단계 등) <b>연속 선정</b>으로 연구·교육 트랙의 안정적 지원 확보</li>
           <li><strong>프로그램:</strong> <em>공동강의·세미나·해외연수·학제간 캡스톤</em> 등 운영</li>
-          <li><strong>지표화:</strong> 참여 대학원생 수, SCIE 논문 수, 특허/이전 기술료, 해외 공동저자 비율</li>
+         <!--  <li><strong>지표화:</strong> 참여 대학원생 수, SCIE 논문 수, 특허/이전 기술료, 해외 공동저자 비율</li> -->
         </ul>
         <div class="actions">
           <a class="btn" href="#faculty">분야별 교수 보기</a>
@@ -175,7 +180,8 @@
         <div class="logos" aria-label="주요 협력사(예시)">
           <div class="logo-box">현대중공업</div>
           <div class="logo-box">LG전자</div>
-          <div class="logo-box">그 외 파트너</div>
+          <div class="logo-box">한화에어로스페이스</div>
+          <div class="logo-box">SL</div>
         </div>
         <p class="note">※ 실제 로고는 <code>/assets/logos/</code>에 추가 후 교체</p>
       </article>
@@ -199,19 +205,18 @@
         <h2 id="startup-title">창업 및 글로벌 혁신 – CES 등 국제전시회 진출</h2>
         <p class="sub">프로토타입→IR→글로벌 쇼케이스까지 이어지는 전주기 지원</p>
         <ul class="list">
-          <li><b>CES</b>·Hannover Messe·IEEE/ASME 학술 전시 등 <b>국제 무대</b> 참가</li>
+          <li><b>CES</b>·IEEE 학술 전시 등 <b>국제 무대</b> 참가</li>
           <li>학교·지자체·TLO 연계 <em>창업 보육</em>, 시드·R&amp;D 매칭</li>
-          <li>Global challenge track: <em>영문 피치, 해외 멘토단</em> 운영</li>
         </ul>
         <div class="stat-cards">
+          <a class="stat" href="https://hummingblocks.com/" target="_blank">
+            <h3>대표 전시 성과</h3>
+            <div class="v">학부생 창업기업 허밍블럭스</div>
+            <div class="note">2025 CES 혁신상 수상</div>
+          </a>
           <div class="stat">
-            <h3>전시 성과(예시)</h3>
-            <div class="v">출품 5팀 / 연</div>
-            <div class="note">연도별 실적 업데이트 권장</div>
-          </div>
-          <div class="stat">
-            <h3>창업 지표(예시)</h3>
-            <div class="v">법인 설립 2팀 / 연</div>
+            <h3>학생/교원 창업 지표</h3>
+            <div class="v">법인 설립 수 - N </div>
             <div class="note">투자 유치·매출 실적 연계</div>
           </div>
         </div>
@@ -224,7 +229,7 @@
 
     <section id="faculty" class="grid" aria-labelledby="faculty-title">
       <article class="card">
-        <h2 id="faculty-title">24인의 교수진 – 세계 2% 과학자 포함</h2>
+        <h2 id="faculty-title">세계적 교육·연구역량을 갖춘 24인의 교수진</h2>
         <p class="sub">로봇/자동차/에너지/항공·방산/반도체/조선·해양 등 융합 연구 클러스터</p>
         <ul class="list">
           <li><b>전임 24인</b> 구성, 교육·연구·산학 전 영역 커버</li>
