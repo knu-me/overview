@@ -100,6 +100,34 @@
       font-size: 0.8rem;
       color: gray;
     }
+    .research-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.research-item {
+  flex: 1 1 calc(50% - 10px);
+  background: #eeeeee;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: #660000;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.research-item:hover {
+  background: #f2d9d9;
+  text-decoration: underline;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
   </style>
 </head>
 <body>
@@ -173,12 +201,20 @@
     <div class="card centercard" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image5.png')">
       <h2>연구기관</h2>
       <p><strong>"미래 산업을 선도하는 기계공학 연구센터"</strong></p>
+      <!--
       <ul>
         <a href="https://imet.knu.ac.kr/" style="color: #003366; text-decoration: underline;" target="_blank">기계연구소</a> <br>
-        <a href="https://home.knu.ac.kr/HOME/acoustic/index.htm" style="color: #003366; text-decoration: underline;" target="_blank">음향공학연구소</a> <br>
+        <a href="https://home.knu.ac.kr/HOME/acoustic" style="color: #003366; text-decoration: underline;" target="_blank">음향공학연구소</a> <br>
         <a href="https://kddm.knu.ac.kr/" style="color: #003366; text-decoration: underline;" target="_blank">디지털설계및생산기술연구소</a> <br>
         <a href="https://iedt.knu.ac.kr/" style="color: #003366; text-decoration: underline;" target="_blank">공학설계연구소</a> <br>
       </ul>
+      -->
+       <div class="research-list">
+        <a href="https://imet.knu.ac.kr/" target="_blank" class="research-item">기계연구소</a>
+        <a href="https://iedt.knu.ac.kr/" target="_blank" class="research-item">공학설계연구소</a>
+        <a href="https://home.knu.ac.kr/HOME/acoustic" target="_blank" class="research-item">음향공학<br>연구소</a>
+        <a href="https://kddm.knu.ac.kr/" target="_blank" class="research-item">디지털설계 및 <br> 생산기술연구소</a>
+      </div>
     </div>
 
     <div class="card centercard" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image8.png')">
