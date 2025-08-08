@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>기계공학부 경쟁력 한눈에 보기 – 세부 페이지</title>
+  <meta name="description" content="2025 THE 세계대학평가(기계공학) 국내 국립대 2위, BK21 연속 선정, 산학협력(현대중공업·LG전자 등), 창업·글로벌 혁신(CES) 성과, 세계 2% 과학자 포함 24인 교수진">
+   <style>
+    :root{
+      --bg:#ffffff; --card:#f9fafb; --muted:#555; --text:#222; --accent:#003366; --ok:#007c59; --warn:#d17d00;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Pretendard,Apple SD Gothic Neo,Malgun Gothic,Helvetica,Arial,sans-serif;
+      background-color:var(--bg); color:var(--text); line-height:1.65;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px; margin:0 auto; padding:24px}
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0 20px;
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand .logo{
+      width:40px; height:40px; border-radius:12px; background:var(--accent);
+      box-shadow:0 6px 20px rgba(0,0,0,.1);
+    }
+    nav a{
+      padding:8px 12px; border-radius:10px; background:#eef2f7; border:1px solid #ccd4dd;
+      margin-left:6px; white-space:nowrap
+    }
+    .hero{
+      padding:28px; background:#f2f6fa; border:1px solid #ccd4dd; border-radius:18px;
+    }
+    .hero h1{margin:0 0 8px; font-size:28px; color:var(--accent)}
+    .hero p{margin:6px 0 16px; color:var(--muted)}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .badge{
+      padding:8px 12px; background:#eef2f7; border:1px solid #ccd4dd; border-radius:999px; font-size:14px
+    }
+    .grid{
+      margin-top:24px; display:grid; gap:16px;
+      grid-template-columns:repeat(12,1fr);
+    }
+    .card{
+      grid-column:span 12; background:var(--card); border:1px solid #ccd4dd; border-radius:16px; padding:20px;
+    }
+    .card h2{margin:0 0 6px; font-size:22px; color:var(--accent)}
+    .sub{color:var(--muted); margin:0 0 14px; font-size:14px}
+    .kpi{
+      display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 2px;
+    }
+    .kpi .pill{
+      background:#eef2f7; border:1px solid #ccd4dd; border-radius:12px; padding:8px 10px; font-size:14px
+    }
+    .list{margin:12px 0 0; padding-left:18px}
+    .list li{margin:6px 0}
+    .note{font-size:13px; color:var(--muted); margin-top:10px}
+    .actions{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid #ccd4dd; background:var(--accent); color:#fff; font-weight:600
+    }
+    .btn.secondary{background:#eef2f7; color:var(--accent)}
+    .logos{
+      display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; align-items:center
+    }
+    .logos .logo-box{
+      width:96px; height:48px; border-radius:10px; background:#eef2f7; border:1px solid #ccd4dd; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px
+    }
+    .stat-cards{
+      display:grid; gap:12px; grid-template-columns:repeat(12,1fr); margin-top:8px
+    }
+    .stat{grid-column:span 12; padding:16px; border-radius:14px; border:1px solid #ccd4dd; background:#eef2f7}
+    .stat h3{margin:0 0 4px; font-size:16px; color:var(--accent)}
+    .stat .v{font-size:26px; font-weight:800}
+    .ok{color:var(--ok)} .warn{color:var(--warn)}
+    footer{margin:28px 0 10px; color:var(--muted); font-size:13px}
+    @media(min-width:720px){
+      .card.span6{grid-column:span 6}
+      .stat{grid-column:span 6}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <strong>기계공학부</strong><br />
+          <span style="color:var(--muted); font-size:13px">Competitiveness Detail</span>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">메인으로</a>
+        <a href="#rank">세계대학평가</a>
+        <a href="#bk21">BK21</a>
+        <a href="#coop">산학협력</a>
+        <a href="#startup">창업·글로벌</a>
+        <a href="#faculty">교수진</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="요약">
+      <h1>기계공학부 경쟁력 – 세부 페이지</h1>
+      <p>한눈에 보기 카드의 항목을 세부 지표와 사례 중심으로 정리했습니다. 필요 시 수치·근거 링크를 업데이트하세요.</p>
+      <div class="badges">
+        <span class="badge">2025 THE 기계공학 국내 국립대 2위</span>
+        <span class="badge">BK21 연속 선정</span>
+        <span class="badge">현대중공업·LG전자 산학 협력</span>
+        <span class="badge">CES 등 국제 전시 진출</span>
+        <span class="badge">24인 교수진 (세계 2% 과학자 포함)</span>
+      </div>
+      <div class="actions">
+        <a class="btn" href="#rank">핵심 지표 보기</a>
+        <a class="btn secondary" href="mailto:ssle8653@gmail.com">문의하기</a>
+      </div>
+    </section>
+
+    <section id="rank" class="grid" aria-labelledby="rank-title">
+      <article class="card">
+        <h2 id="rank-title">2025 THE 세계대학평가 – 기계공학 분야 국내 국립대 2위</h2>
+        <p class="sub">연구 영향력·산학수입·국제화 등 다중 지표 기반</p>
+        <div class="kpi">
+          <div class="pill">연구 영향력(예: Field-Weighted) <strong class="ok">상위권</strong></div>
+          <div class="pill">산학 수입(Industry Income) <strong>우수</strong></div>
+          <div class="pill">국제 공동연구 비중 <strong>증가</strong></div>
+        </div>
+        <ul class="list">
+          <li><strong>핵심 메시지:</strong> 기계공학 분야에서 국내 국립대 기준 <b>2위</b> 성과.</li>
+          <li><strong>활용 포인트:</strong> 학부 홍보물, 홈페이지 메인 배너, 입학설명회 슬라이드.</li>
+          <li><strong>주의:</strong> 공식 순위표와 지표 값(년도·버전)을 주기적으로 갱신하세요.</li>
+        </ul>
+        <p class="note">※ 근거 링크/이미지: <em>향후 공식 발표 URL 또는 캡처 추가</em></p>
+        <div class="stat-cards">
+          <div class="stat">
+            <h3>핵심 지표(예시)</h3>
+            <div class="v">Top 2 (국립대)</div>
+            <div class="note">지표 범위: 2025 THE by subject – Mechanical Engineering</div>
+          </div>
+          <div class="stat">
+            <h3>최근 3년 추세(예시)</h3>
+            <div class="v">상승세 유지</div>
+            <div class="note">정확한 수치는 연도별 공식 데이터 반영</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="bk21" class="grid" aria-labelledby="bk21-title">
+      <article class="card">
+        <h2 id="bk21-title">BK21 사업 연속 선정 – 연구·교육 역량 인정</h2>
+        <p class="sub">대학원 교육 혁신, 신진 연구자 양성, 국제 공동연구 강화</p>
+        <ul class="list">
+          <li><strong>성과:</strong> BK21(4단계 등) <b>연속 선정</b>으로 연구·교육 트랙의 안정적 지원 확보</li>
+          <li><strong>프로그램:</strong> <em>공동강의·세미나·해외연수·학제간 캡스톤</em> 등 운영</li>
+          <li><strong>지표화:</strong> 참여 대학원생 수, SCIE 논문 수, 특허/이전 기술료, 해외 공동저자 비율</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="#faculty">연구 지도교수 보기</a>
+          <a class="btn secondary" href="#">운영 세부(추가 예정)</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="coop" class="grid" aria-labelledby="coop-title">
+      <article class="card span6">
+        <h2 id="coop-title">산학협력 교육 – 현대중공업, LG전자 등과 공동 연구</h2>
+        <p class="sub">현장 기반 캡스톤·공동 프로젝트·인턴십 트랙</p>
+        <ul class="list">
+          <li>대형 기업 <b>현안 기반 과제</b>를 통한 문제 해결형 교육</li>
+          <li>학부–대학원 연계형 <em>산학 캡스톤</em> 및 기술 검증(PoC)</li>
+          <li>공동 특허·기술이전·현장 실습(인턴십) 파이프라인</li>
+        </ul>
+        <div class="logos" aria-label="주요 협력사(예시)">
+          <div class="logo-box">현대중공업</div>
+          <div class="logo-box">LG전자</div>
+          <div class="logo-box">그 외 파트너</div>
+        </div>
+        <p class="note">※ 실제 로고는 <code>/assets/logos/</code>에 추가 후 교체</p>
+      </article>
+      <article class="card span6">
+        <h2>교과–현장 연계 설계</h2>
+        <ul class="list">
+          <li>산학실무 세미나(겸임·초빙 전문가)</li>
+          <li>기업 멘토링 기반 <b>팀 프로젝트</b></li>
+          <li>성과 전시: 학내 전시회·산학 페어·성과집 발간</li>
+        </ul>
+        <div class="kpi">
+          <div class="pill">캡스톤 팀 수(연)</div>
+          <div class="pill">참여 기업 수(연)</div>
+          <div class="pill">기술이전/특허 건수</div>
+        </div>
+      </article>
+    </section>
+
+    <section id="startup" class="grid" aria-labelledby="startup-title">
+      <article class="card">
+        <h2 id="startup-title">창업 및 글로벌 혁신 – CES 등 국제전시회 진출</h2>
+        <p class="sub">프로토타입→IR→글로벌 쇼케이스까지 이어지는 전주기 지원</p>
+        <ul class="list">
+          <li><b>CES</b>·Hannover Messe·IEEE/ASME 학술 전시 등 <b>국제 무대</b> 참가</li>
+          <li>학교·지자체·TLO 연계 <em>창업 보육</em>, 시드·R&amp;D 매칭</li>
+          <li>Global challenge track: <em>영문 피치, 해외 멘토단</em> 운영</li>
+        </ul>
+        <div class="stat-cards">
+          <div class="stat">
+            <h3>전시 성과(예시)</h3>
+            <div class="v">출품 5팀 / 연</div>
+            <div class="note">연도별 실적 업데이트 권장</div>
+          </div>
+          <div class="stat">
+            <h3>창업 지표(예시)</h3>
+            <div class="v">법인 설립 2팀 / 연</div>
+            <div class="note">투자 유치·매출 실적 연계</div>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#">성과 갤러리(추가 예정)</a>
+          <a class="btn secondary" href="#">보도자료 모음(추가 예정)</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="faculty" class="grid" aria-labelledby="faculty-title">
+      <article class="card">
+        <h2 id="faculty-title">24인의 교수진 – 세계 2% 과학자 포함</h2>
+        <p class="sub">전기모터·모빌리티·디지털트윈·제어이론 등 융합 연구 클러스터</p>
+        <ul class="list">
+          <li><b>전임 24인</b> 구성, 교육·연구·산학 전 영역 커버</li>
+          <li><b>세계 2% 과학자</b> 등재 교수 포함 (분야별 영향력)</li>
+          <li>대형 과제·국제공동연구·플래그십 랩 운영</li>
+        </ul>
+        <div class="kpi">
+          <div class="pill">전임교원 24명</div>
+          <div class="pill ok">세계 2% 과학자 포함</div>
+          <div class="pill">대형 과제 다수</div>
+        </div>
+        <p class="note">※ 교수 프로필 페이지/리스트로 연결 링크를 추가하세요.</p>
+        <div class="actions">
+          <a class="btn" href="#">교수진 목록(추가 예정)</a>
+          <a class="btn secondary" href="#">연구실 소개(추가 예정)</a>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      © 2025 기계공학부 · 본 페이지는 홍보용 세부 안내 초안입니다. 수치·근거 링크를 주기적으로 갱신하세요.
+    </footer>
+  </div>
+</body>
+</html>
