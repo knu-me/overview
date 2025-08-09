@@ -38,9 +38,9 @@
       transition: transform .3s ease, opacity .2s ease, background .3s ease;
     }
     /* 햄버거 → X 모핑 */
-    .hamburger.active span:nth-child(1){ transform: translateY(10px) rotate(45deg); background: var(--ok); }
+    .hamburger.active span:nth-child(1){ transform: translateY(10px) rotate(45deg); background: var(--accent); }
     .hamburger.active span:nth-child(2){ opacity:0; }
-    .hamburger.active span:nth-child(3){ transform: translateY(-10px) rotate(-45deg); background: var(--ok); }
+    .hamburger.active span:nth-child(3){ transform: translateY(-10px) rotate(-45deg); background: var(--accent); }
 
     /* 사이드바 (오른쪽) */
     .sidebar{
@@ -50,7 +50,7 @@
     }
     .sidebar.active{ right:0; }
     .sidebar .close-btn{ width:32px; height:24px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; margin-bottom:20px; }
-    .sidebar .close-btn span{ display:block; height:4px; background:var(--ok); border-radius:2px; }
+    .sidebar .close-btn span{ display:block; height:4px; background:var(--accent); border-radius:2px; }
     .sidebar .close-btn span:nth-child(1){ transform: translateY(10px) rotate(45deg); }
     .sidebar .close-btn span:nth-child(2){ opacity:0; }
     .sidebar .close-btn span:nth-child(3){ transform: translateY(-10px) rotate(-45deg); }
@@ -59,27 +59,28 @@
     .hero h1{margin:0 0 8px; font-size:28px; color:var(--accent)}
     .hero p{margin:6px 0 16px; color:var(--muted)}
     .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-    .badge{ padding:8px 12px; background:#eef2f7; border:1px solid #ccd4dd; border-radius:999px; font-size:14px }
+    .badge{ padding:4px 12px; background:#f0f0f0; border:1px solid #ccd4dd; border-radius:999px; font-size:12px }
     .grid{ margin-top:24px; display:grid; gap:16px; grid-template-columns:repeat(12,1fr); }
     .card{ grid-column:span 12; background:var(--card); border:1px solid #ccd4dd; border-radius:16px; padding:20px; }
     .card h2{margin:0 0 6px; font-size:22px; color:var(--accent)}
     .sub{color:var(--muted); margin:0 0 14px; font-size:14px}
     .kpi{ display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 2px; }
-    .kpi .pill{ background:#eef2f7; border:1px solid #ccd4dd; border-radius:12px; padding:8px 10px; font-size:14px }
+    .kpi .pill{ background:#f0f0f0; border:1px solid #ccd4dd; border-radius:8px; padding:4px 6px; font-size:12px }
     .list{margin:12px 0 0; padding-left:18px}
     .list li{margin:6px 0}
     .note{font-size:13px; color:var(--muted); margin-top:10px}
     .actions{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
-    .btn{ display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid #ccd4dd; background:var(--accent); color:#fff; font-weight:600 }
+    .btn{ display:inline-block;font-size: 1.0rem; padding:6px 8px; border-radius:8px; border:1px solid #ccd4dd; background:var(--accent); color:#fff; font-weight:600;column-gap: 1px;}
     .btn.secondary{background:#eef2f7; color:var(--accent)}
-    .logos{ display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; align-items:center }
-    .logos .logo-box{ width:auto; height:30px; padding:10px; border-radius:10px; background:#eef2f7; border:1px solid #ccd4dd; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px }
+    .logos{ display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; align-items:center }
+    .logos .logo-box{ width:auto; height:24px; padding:1px; border-radius:10px; background:#eef2f7; border:1px solid #ccd4dd; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px }
     .stat-cards{ display:grid; gap:12px; grid-template-columns:repeat(12,1fr); margin-top:8px }
     .stat{grid-column:span 12; padding:16px; border-radius:14px; border:1px solid #ccd4dd; background:#eef2f7}
     .stat h3{margin:0 0 4px; font-size:16px; color:var(--accent)}
-    .stat .v{font-size:26px; font-weight:800}
+    .stat .v{font-size:20px; font-weight:800}
     .ok{color:var(--ok)} .warn{color:var(--warn)}
     footer{margin:28px 0 10px; color:var(--muted); font-size:13px}
+    .small-navy { font-size: 0.8rem; color: #003366;}
     @media(min-width:720px){ .card.span6{grid-column:span 6} .stat{grid-column:span 6} }
   </style>
 </head>
@@ -101,7 +102,7 @@
       <div class="close-btn" id="closeBtn" aria-label="메뉴 닫기">
         <span></span><span></span><span></span>
       </div>
-      <a href="https://knu-me.github.io/overview/"><strong>홈</strong></a>
+      <a href="https://knu-me.github.io/overview/"><strong>한눈에 보기</strong></a>
       <a href="#rank"><strong>세계대학평가</strong></a>
       <a href="#bk21"><strong>BK21</strong></a>
       <a href="#coop"><strong>산학협력</strong></a>
@@ -116,10 +117,10 @@
       <h1>경북대학교 기계공학부의 경쟁력</h1>
       <div class="badges">
         <span class="badge">2025 THE 공학분야 국내 국립대 2위</span>
+        <span class="badge">글로벌 영향력 인정</span>
         <span class="badge">BK21 연속 선정</span>
         <span class="badge">현대중공업·LG전자 등 산학 협력</span>
-        <span class="badge">글로벌 영향력 인정</span>
-        <span class="badge">24인의 우수한 전임 교수진</span>
+        <span class="badge">24인의 우수한 교수진</span>
       </div>
       <div class="actions">
         <a class="btn" href="#rank">핵심 지표 보기</a>
@@ -131,11 +132,7 @@
       <article class="card">
         <h2 id="rank-title">2025 THE 세계대학평가 – 공학분야 국내 국립대 2위</h2>
         <p class="sub">연구 영향력·산학수입·국제화 등 다중 지표 기반</p>
-        <div class="kpi">
-          <div class="pill">세계 <strong class="ok">300위권 진입</strong></div>
-          <div class="pill">국제 공동연구 비중 <strong>증가</strong></div>
-          <div class="pill">국제화 수준 <strong>국내 국립대 1위</strong></div>
-        </div>
+
         <div class="stat-cards">
           <div class="stat">
             <h3>핵심 지표(예시)</h3>
@@ -147,6 +144,11 @@
             <div class="v">상승세 유지</div>
             <div class="note">정확한 수치는 연도별 공식 데이터 반영</div>
           </div>
+        </div>
+          <div class="kpi">
+            <div class="pill">세계 <strong class="ok">300위권 진입</strong></div>
+            <div class="pill">국제화 수준 <strong>국내 국립대 1위</strong></div>
+            <div class="pill">국제 공동연구 비중 <strong>증가</strong></div>
         </div>
          <p class="note">
             <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/comp/2025THE.png" alt="2025 THE 세계대학평가 순위 이미지" style="max-width:100%; border:1px solid #ccd4dd; border-radius:8px; margin-top:8px;" />
@@ -165,8 +167,8 @@
           <li><strong>장학금:</strong> 우수 대학원생 장학금 지원 </li>
         </ul>
         <div class="actions">
-          <a class="btn" href="#faculty">분야별 교수 보기</a>
-          <a class="btn secondary" href="#">운영 세부(추가 예정)</a>
+          <a class="btn" href="#faculty">분야별 교수</a>
+          <a class="btn secondary" href="#">운영 세부</a>
         </div>
       </article>
     </section>
@@ -181,12 +183,11 @@
           <li>공동 특허·기술이전·현장 실습(인턴십) 파이프라인</li>
           <li>산학실무 및 전문가 초빙 세미나</li>
         </ul>
-        <div class="logos" aria-label="주요 협력사">
-          <p><strong>주요 협력사</strong></p>
-          <div class="logo-box">현대중공업</div>
-          <div class="logo-box">LG전자</div>
-          <div class="logo-box">한화에어로스페이스</div>
-          <div class="logo-box">SL</div>
+        <span class="small-navy"> <strong>주요 협력사</strong></span>
+        <div class="kpi">
+          <div class="pill">현대중공업</div>
+          <div class="pill">LG전자</div>
+          <div class="pill">한화에어로스페이스</div>
         </div>
       </article>
     </section>
@@ -212,8 +213,8 @@
           </div>
         </div>
         <div class="actions">
-          <a class="btn" href="#">성과 갤러리(추가 예정)</a>
-          <a class="btn secondary" href="#">보도자료 모음(추가 예정)</a>
+          <a class="btn" href="#">성과 갤러리</a>
+          <a class="btn secondary" href="#">보도자료</a>
         </div>
       </article>
     </section>
@@ -224,17 +225,17 @@
         <p class="sub">로봇/자동차/에너지/항공·방산/반도체/조선·해양 등 융합 연구 클러스터</p>
         <ul class="list">
           <li><b>전임 24인</b> 구성, 교육·연구·산학 전 영역 커버</li>
-          <li><b>세계 2% 과학자</b> 등재 교수 포함 (분야별 영향력)</li>
+          <li><b>세계 2% 과학자</b> 등재 교수 포함 </li>
           <li>대형 과제·국제공동연구·플래그십 랩 운영</li>
         </ul>
         <div class="kpi">
           <div class="pill">전임교원 24명</div>
-          <div class="pill ok"><strong>세계 2% 과학자 포함</strong></div>
+          <div class="pill ok"><strong>세계 2% 과학자</strong></div>
           <div class="pill">대형 과제 다수</div>
         </div>
         <div class="actions">
-          <a class="btn" href="#">교수진 목록(추가 예정)</a>
-          <a class="btn secondary" href="#">연구실 소개(추가 예정)</a>
+          <a class="btn" href="#">교수진 목록</a>
+          <a class="btn secondary" href="#">연구실 소개</a>
         </div>
       </article>
     </section>
@@ -256,7 +257,6 @@
       menuToggle.setAttribute('aria-label', willOpen ? '메뉴 닫기' : '메뉴 열기');
       menuToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
     }
-
     menuToggle.addEventListener('click', () => toggleSidebar());
     closeBtn.addEventListener('click', () => toggleSidebar(false));
     document.querySelectorAll('.sidebar a').forEach(a => a.addEventListener('click', () => toggleSidebar(false)));

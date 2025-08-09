@@ -82,9 +82,17 @@
     }
     .shortcut-icon-wrapper {
       position: absolute;
-      bottom: 10px;
-      right: 16px;
-      z-index: 2;
+      top: 10px;
+      right: 10px;
+      padding: 6px 10px;
+      background-color: #f2f2f2;
+      border-radius: 6px;
+      font-size: 0.9em;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .shortcut-icon-wrapper:hover {
+      background-color: #e0e0e0;    /* hover 시 색 변화 */
     }
     .shortcut-icon {
       width: 80px;
@@ -139,23 +147,26 @@ footer{margin:28px 0 10px; color:var(--muted); font-size:13px}
     <a class="card" href="https://knu-me.github.io/overview/comp/comp-main" target="_blank" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image1.png')">
       <h2>기계공학부 경쟁력 한눈에 보기</h2>
       <ul>
-        <li><strong>2025 THE 세계대학평가</strong> – 국내 국립대 <strong style="color: var(--main-red);">2위</strong> <span class="small-gray">(공학분야)</span></li>
+        <li><strong>THE 세계대학평가</strong> – 국내 국립대 <strong style="color: var(--main-red);">2위</strong> <span class="small-gray">(2025년 공학분야 기준)</span></li>
         <li><strong>BK21 사업 연속 선정</strong> – 연구·교육 역량 인정</li>
-        <li><strong>산학협력 교육</strong> – 현대중공업, LG전자 등과 공동 연구</li>
-        <li><strong>창업 및 글로벌 혁신</strong> – CES 등 국제전시회 진출</li>
+        <li><strong>산학협력</strong> – 현대중공업, LG전자 등 국내 주요기업과 공동 연구</li>
+        <li><strong>창업 및 글로벌 혁신</strong> – 학부생 창업 기업의 국제 전시회(CES 등) 진출</li>
         <li><strong>24인의 교수진</strong> – 세계 2% 과학자 포함 우수한 교수진</li>
       </ul>
+      <span class="shortcut-icon-wrapper">바로가기 🔗</span>
+      <!--
       <span class="shortcut-icon-wrapper">
         <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/index/shortcut.png" class="shortcut-icon" alt="바로가기">
       </span>
+      -->
     </a>
     <div class="card" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image2.png')">
       <h2>우수 연구 역량</h2>
       <ul>
         <li><strong>SCI(E) 논문</strong> – 최근 5년간 <strong style="color: var(--main-red);">N편 이상</strong></li>
-        <li><strong>국책연구 과제</strong> – 과기부·산업부 등 정부 지원 연구과제 다수 수행</li>
+        <li><strong>국책연구 과제</strong> – 과기부 등 정부 지원 연구과제 다수 수행</li>
         <li><strong>인력양성 사업</strong> – BK21, RISE(로봇,모빌리티,반도체) 등 인력양성사업 수행</li>
-        <li><strong>핵심성과 분야</strong> – 로봇, 자동차, 반도체, 에너지 등 미래 핵심 성장 동력</li>
+        <li><strong>핵심성과 분야</strong> – 로봇, 자동차, 반도체, 에너지 등 미래 핵심 성장 동력 주도</li>
       </ul>
     </div>
      <div class="card" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image7.png')">
@@ -163,7 +174,7 @@ footer{margin:28px 0 10px; color:var(--muted); font-size:13px}
       <ul>
         <li>리투아니아 등 <strong>교환 학생 프로그램</strong></li>
         <li>UCLA 등 해외 유수 대학과 <strong>국제공동연구</strong> </li>
-        <li><strong>영어 전용 교과목</strong> 및 학부생 <strong>국제 학회 발표 지원</strong></li>
+        <li><strong>영어 전용 과목</strong> 및 <strong>국제 학회 참가 지원</strong></li>
       </ul>
     </div>
     <div class="card" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image6.png')">
@@ -183,9 +194,8 @@ footer{margin:28px 0 10px; color:var(--muted); font-size:13px}
         <strong>반도체</strong> <span class="company-list">(삼성전자, SK하이닉스)</span> <br>
         <strong>조선·해양</strong> <span class="company-list">(삼성중공업, HD현대)</span>
       </p>
-      <span class="shortcut-icon-wrapper">
-        <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/index/shortcut.png" class="shortcut-icon" alt="바로가기">
-      </span>
+      <span class="shortcut-icon-wrapper">바로가기 🔗</span>
+
     </a>
 
     <a class="card" href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1754034861" target="_blank" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image4.png')">
@@ -198,9 +208,8 @@ footer{margin:28px 0 10px; color:var(--muted); font-size:13px}
         <li><strong>교수 임용 현황</strong><br>
            국내외 주요 대학에 <strong style="color: var(--main-red);">N명</strong> 임용</li>
       </ul>
-      <span class="shortcut-icon-wrapper">
-        <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/index/shortcut.png" class="shortcut-icon" alt="바로가기">
-      </span>
+      <span class="shortcut-icon-wrapper">바로가기 🔗</span>
+
     </a>
     <div class="card centercard" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image5.png')">
       <h2>연구기관</h2>
@@ -224,7 +233,7 @@ footer{margin:28px 0 10px; color:var(--muted); font-size:13px}
     <div class="card centercard" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image8.png')">
       <h2>학부/대학원 장학금</h2>
       <p><strong>"미래를 투자 받는 기계공학부"</strong></p>
-      <p><em>부담 없이 학업에 전념할 수 있는 다양한 장학 제도</em></p>
+      <p><em>부담 없이 학업에 전념할 수 있는 다양한 장학제도</em></p>
       <ul>
         장학금 수혜율: <strong style="color: var(--main-red);">66.5%</strong><br>
         1인당 평균 수혜금: <strong>154만원</strong><br>
@@ -232,7 +241,7 @@ footer{margin:28px 0 10px; color:var(--muted); font-size:13px}
       </ul>
     </div>
     <footer>
-      Copyright © IMaC Lab. 2025. All Rights Reserved. 본 페이지는 경북대학교 기계공학부 홍보용 세부 안내입니다.
+      Copyright © IMaC Lab. 2025. All Rights Reserved. 본 페이지는 경북대학교 기계공학부 홍보용 안내 페이지 입니다.
     </footer>
   </div>
 </body>
