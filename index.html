@@ -163,6 +163,98 @@
   background-color: var(--border); /* 기존 카드 테두리 색상과 동일 */
   margin: 8px 0 10px;
 }
+.info:visited{ color:#000; }
+.info:focus-visible{
+  outline:3px solid #2563eb;   /* 접근성 포커스 링 */
+  outline-offset:2px;
+}
+/* 내부 텍스트 정리 */
+.info h3{
+  margin:0 0 6px;
+  font-size:16px;
+  color:#000;                  /* 제목도 검정 */
+}
+.info p{
+  margin:0;
+  color:var(--muted);          /* 본문은 약간 흐리게 */
+}
+/* 링크 카드: <a class="info">...</a> */
+a.info{
+  display:block;
+  padding:12px 14px;
+  border:1px solid #ccd4dd;
+  border-radius:12px;
+  background:#fff;               /* 기본 배경 */
+  color:#000;                    /* 글자색 검정 */
+  text-decoration:none;          /* 밑줄 제거 */
+  transition:transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+a.info:hover{
+  background:#f5f5f5;            /* 호버 배경 회색 */
+  transform:translateY(-2px);    /* 살짝 띄우기 */
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  text-decoration:none;
+}
+a.info:visited{ color:#000; }     /* 방문 후에도 검정 유지 */
+a.info:focus-visible{
+  outline:3px solid #2563eb;     /* 접근성 포커스 링 */
+  outline-offset:2px;
+}
+/* 내부 텍스트 정리 */
+a.info h3{ margin:0 0 6px; font-size:16px; color:#000; }
+
+/* 히어로 2열 레이아웃 */
+.hero-grid{
+  display:grid; align-items:center; gap:20px;
+  grid-template-columns: 1fr;         /* 모바일 1열 */
+}
+@media (min-width: 900px){
+  .hero-grid{ grid-template-columns: 1.15fr 0.85fr; } /* 데스크톱 2열 */
+}
+
+/* 비주얼 카드 */
+.hero-visual{
+  position:relative; overflow:hidden; border-radius:16px;
+  border:1px solid #ccd4dd; background:#eef2f7;
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+  min-height: 240px;          /* 이미지 로딩 전 자리 확보 */
+}
+.hero-visual img{
+  width:100%; height:100%; display:block; object-fit:cover;
+}
+
+/* 은은한 하이라이트(장식) */
+.hero-visual::before{
+  content:""; position:absolute; inset:auto -20% -20% -20%;
+  height:60%; background:radial-gradient(60% 60% at 50% 0%,
+    rgba(37,99,235,.25), transparent 60%);
+  pointer-events:none;
+}
+/* 히어로 2열 레이아웃 (모바일 1열 → 720px부터 2열) */
+.hero .inner{
+  display:flex; flex-direction:column; gap:20px;   /* 모바일: 세로 */
+}
+@media (min-width: 720px){
+  .hero .inner{ flex-direction:row; align-items:center; }
+  .hero-text{ flex:1.1; min-width:0; }
+  .hero-visual{ flex:0.9; max-width:560px; margin-left:auto; }
+}
+
+/* 비주얼 카드 모양 */
+.hero-visual img{
+  width:100%; height:auto; display:block; object-fit:cover;
+  border-radius:16px; border:1px solid #ccd4dd;
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+}
+/* 배지 없을 때 기본 정의 */
+.badges{
+  display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;
+}
+.badge{
+  padding:6px 12px; border:1px solid #ccd4dd; border-radius:999px;
+  background:#f7f9fc; font-size:12px; color:#333
+}
+
 </style>
 </head>
 <body>
@@ -176,9 +268,9 @@
       <nav aria-label="주요 메뉴">
         <ul>
           <li><a href="#about">학부 소개</a></li>
-          <li><a href="#news">공지사항</a></li>
           <li><a href="#faculty">교수진</a></li>
           <li><a href="#research">연구</a></li>
+          <li><a href="#news">공지사항</a></li>
           <li><a href="#contact">문의</a></li>
         </ul>
       </nav>
@@ -186,11 +278,30 @@
   </header>
   
   <main id="main">
-    <section class="hero">
-      <div class="container wrap">
-        <span class="eyebrow">Department of Mechanical Engineering</span>
-        <h1 class="headline">더 빠르고, 더 보기 좋게. <br>기계공학부 서브페이지 모던 리디자인</h1>
-        <p class="sub">복잡한 테이블과 오래된 마크업 대신, 접근성·가독성·모바일 대응을 갖춘 단일 HTML 파일 예시입니다. 학부/연구실 정보, 공지, 교수진을 카드형으로 구성하고 색상·레이아웃은 학교 아이덴티티에 맞춰 쉽게 조정할 수 있습니다.</p>
+<section class="hero" aria-label="요약">
+  <div class="wrap inner">  <!-- ← hero 내부를 .inner로 감싸 2열화 -->
+    <div class="hero-text">
+      <span class="eyebrow">DEPARTMENT OF MECHANICAL ENGINEERING</span>
+      <h1 class="headline">교육-연구-산업을 잇는<br>경북대학교 기계공학부</h1>
+      <p class="sub">
+        THE 공학분야 국내 국립대 <b>2위</b>, BK21 <b>연속 선정</b>. 24인 교수진과 특화 연구소가 학부–대학원–현장을 잇고
+        산학공동연구·인턴십·캡스톤·국제 프로그램으로 배운 것을 <b>성과</b>로 연결합니다.
+      </p>
+      <div class="badges">
+        <span class="badge">로봇</span>
+        <span class="badge">자동차</span>
+        <span class="badge">에너지</span>
+        <span class="badge">항공·방산</span>
+        <span class="badge">반도체</span>
+        <span class="badge">조선·해양</span>
+      </div>
+    </div>
+
+    <!-- 오른쪽 이미지 -->
+    <figure class="hero-visual" aria-hidden="true">
+      <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/main.png'" alt="" decoding="async" fetchpriority="high" />
+    </figure>
+  </div>
         <div class="quick">
           <article class="card" aria-labelledby="quick1">
             <h3 id="quick1">한눈에 보기</h3>
@@ -199,7 +310,7 @@
           </article>
           <article class="card" aria-labelledby="quick2">
             <h3 id="quick2">입학/모집</h3>
-            <p>학부·대학원 모집요강, 장학제도, 국제교류 안내.</p>
+            <p>학부·대학원 모집요강, 장학제도 등 안내.</p>
             <a class="cta" href="https://ipsi2.knu.ac.kr/intro/">바로가기 →</a>
           </article>
           <article class="card" aria-labelledby="quick3">
@@ -208,6 +319,7 @@
             <a class="cta" href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1623370438">바로가기 →</a>
           </article>
         </div>
+        
       </div>
     </section>
 
@@ -216,7 +328,7 @@
       <div class="container">
         <div class="section-head">
           <h2>학부 소개</h2>
-          <a href="https://knu-me.github.io/overview/comp/comp-main">더보기</a>
+          <a href="https://knu-me.github.io/overview/comp/comp-main">학부 경쟁력 더보기</a>
         </div>
         <div class="grid">
           <div class="info span-6">
@@ -227,44 +339,15 @@
           </div>
           <div class="info span-6">
             <h3>교육 목표</h3>
-            <ul class="list">
-              <li>기초에 강한 엔지니어 양성 (수학·물리·프로그래밍·설계)</li>
-              <li>미래 모빌리티·지능형 시스템 중심의 융합 교육</li>
-              <li>산학협력 기반 문제해결형 캡스톤 강화</li>
-            </ul>
+              <p>창의적인 문제해결능력을 갖춘 인재 육성 <br>
+              리더로 성장할 수 있는 기본소양을 갖춘 인재 양성 <br>
+              소통하며 공헌하는 현장실무형 엔지니어 배출 </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="news">
-      <div class="container">
-        <div class="section-head">
-          <h2>공지사항</h2>
-          <a href="#">전체 공지 보기</a>
-        </div>
-        <div class="grid">
-          <article class="news-item span-4">
-            <time datetime="2025-08-01">2025-08-01</time>
-            <h3>2학기 수강신청 안내</h3>
-            <p>전필/전선 우선순위, 분반 증원 일정 및 유의사항을 확인하세요.</p>
-          </article>
-          <article class="news-item span-4">
-            <time datetime="2025-07-22">2025-07-22</time>
-            <h3>졸업 작품 전시회</h3>
-            <p>캡스톤디자인 결과물 전시 및 우수작 시상(포스터/데모).</p>
-          </article>
-          <article class="news-item span-4">
-            <time datetime="2025-07-10">2025-07-10</time>
-            <h3>학부생 연구 인턴 모집</h3>
-            <p>IMAC Lab 포함 연구실에서 하계 인턴십 운영(지원 방법 안내).</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="faculty">
-      <div class="container">
         <section id="faculty">
   <div class="container">
     <div class="section-head">
@@ -316,21 +399,47 @@
       <div class="container">
         <div class="section-head">
           <h2>최신 주요 연구 소식</h2>
-          <a href="#">프로젝트 더보기</a>
+          <a href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1623370434">소식 더보기</a>
         </div>
         <div class="grid">
-          <div class="info span-4">
-            <h3>Null Space Excitation 기반 결함진단</h3>
-            <p>Over-actuated UAV에서의 NSE-FDTC 프레임워크 및 DMDc 기반 동특성 추정.</p>
-          </div>
-          <div class="info span-4">
-            <h3>Twin-in-the-Loop MPC</h3>
-            <p>디지털 트윈과 강화학습을 접목한 Sim2Real 강건 제어.</p>
-          </div>
-          <div class="info span-4">
-            <h3>Fan Array Wind Tunnel</h3>
-            <p>분산 제어 기반 Fan Array 풍동과 실시간 적대적 학습 환경 구축.</p>
-          </div>
+          <a class="info span-4", href="https://home.knu.ac.kr/HOME/me/sub.htm?mode=view&mv_data=aWR4PTYwOTkmc3RhcnRQYWdlPTAmbGlzdE5vPTYwJnRhYmxlPWV4X2Jic19kYXRhX21lJnNpdGVfY29kZT1tZSZuYXZfY29kZT1tZTE2MjMzNzA0MzQmY29kZT1XWHNWTHJDZWRSWEYmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPQ==">
+            <h3>대한기계학회 유체공학부문 우수논문상 수상</h3>
+            <p>기계학습 및 유체역학연구실(최상헌 교수) 소속 석박사통합 과정 정진영 학생, 2025년 대한기계학회 유체공학부문 춘계학술대회에서 우수논문상을 수상.</p>
+          </a>
+          <a class="info span-4", href="https://home.knu.ac.kr/HOME/me/sub.htm?mode=view&mv_data=aWR4PTYwODQmc3RhcnRQYWdlPTAmbGlzdE5vPTYwJnRhYmxlPWV4X2Jic19kYXRhX21lJnNpdGVfY29kZT1tZSZuYXZfY29kZT1tZTE2MjMzNzA0MzQmY29kZT1XWHNWTHJDZWRSWEYmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPQ==">
+            <h3>이학 교수팀 “조선해양 자율 로봇” UCLA 공동 개발</h3>
+            <p>경북대(이학 교수 연구팀) “조선해양 자율 로봇” 개발, UCLA와 함께 만든다.</p>
+          </a>
+          <a class="info span-4", href="https://home.knu.ac.kr/HOME/me/sub.htm?mode=view&mv_data=aWR4PTU5MTYmc3RhcnRQYWdlPTAmbGlzdE5vPTYwJnRhYmxlPWV4X2Jic19kYXRhX21lJnNpdGVfY29kZT1tZSZuYXZfY29kZT1tZTE2MjMzNzA0MzQmY29kZT1XWHNWTHJDZWRSWEYmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPQ==">
+            <h3>학부생 창업기업 "CES 혁신상" 수상</h3>
+            <p>기계공학부 19학번인 임주환 대표가 설립한 스타트업 네모감성 2025 CES 혁신상 수상</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <div class="container">
+        <div class="section-head">
+          <h2>공지사항</h2>
+          <a href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1623370438">전체 공지 보기</a>
+        </div>
+        <div class="grid">
+          <article class="news-item span-4">
+            <time datetime="2025-07-10">상시</time>
+            <h3>학부생 인턴 및 석박사 대학원생 모집</h3>
+            <p> xxx, xxx, xxx 교수님 연구실에서 연구원을 모집합니다. 자세한 사항은 교수님 연구실 홈페이지를 확인하세요.</p>
+          </article>
+          <article class="news-item span-4">
+            <time datetime="2025-08-05">2025-08-05</time>
+            <h3>2학기 수강신청 안내</h3>
+            <p>전필/전선 우선순위, 분반 증원 일정 및 유의사항을 확인하세요.</p>
+          </article>
+          <article class="news-item span-4">
+            <time datetime="2025-07-22">2025-07-22</time>
+            <h3>2025학년도 2학기 학부 연구생 프로그램(URP) 장학생 선발 안내</h3>
+            <p>학부 연구생 중 전공분야 수학능력이 우수한 학생에게 장학금 100만원 지원</p>
+          </article>
         </div>
       </div>
     </section>
