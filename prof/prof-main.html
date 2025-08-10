@@ -68,7 +68,7 @@
   <header>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
       <a class="flex items-center gap-3 text-inherit no-underline" href="#" aria-label="경북대학교 기계공학부 홈">
-        <div class="w-9 h-9 rounded-xl grid place-items-center font-extrabold text-white shadow" style="background:linear-gradient(135deg,var(--primary),var(--primary-strong))">ME</div>
+        <div class="w-9 h-9 rounded-xl grid place-items-center font-extrabold text-white shadow" style="background:linear-gradient(135deg,#2563eb, #0f172a)">ME</div>
         <div class="text-lg font-bold">기계공학부</div>
       </a>
       <nav aria-label="주요 메뉴" class="block">
@@ -372,16 +372,18 @@
     let activeField='all';
 
     function applyFilters(){
-      const keyword=(search.value||'').trim().toLowerCase();
+      const keyword=(search?.value||'').trim().toLowerCase();
       let visible=0;
       cards.forEach(c=>{
-        const f=c.getAttribute('data-field');
+        const f=(c.getAttribute('data-field')||'').trim();
         const n=(c.getAttribute('data-name')||'').toLowerCase();
-        const okField=(activeField==='all')||(f===activeField);
-        const okText=!keyword||n.includes(keyword);
-        const show=okField&&okText; c.style.display=show?'':''; if(show) visible++;
+        const okField=(activeField==='all') || (f===activeField);
+        const okText=!keyword || n.includes(keyword);
+        const show=okField && okText;
+        c.style.display = show ? '' : 'none';   // ← 여기!
+        if(show) visible++;
       });
-      empty.classList.toggle('hidden',visible!==0);
+      empty.classList.toggle('hidden', visible!==0);
     }
 
     tabs.forEach(b=>b.addEventListener('click',()=>{
