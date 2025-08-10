@@ -36,11 +36,15 @@
       color:var(--text);
     }
     header{
-      position:sticky;top:0;z-index:50;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
       background: color-mix(in oklab, var(--bg-elev) 92%, transparent);
-      backdrop-filter:saturate(1.15) blur(12px);
-      -webkit-backdrop-filter:saturate(1.15) blur(12px);
-      border-bottom:1px solid var(--border);
+      backdrop-filter: saturate(1.15) blur(12px);
+      -webkit-backdrop-filter: saturate(1.15) blur(12px);
+      border-bottom: 1px solid var(--border);
     }
     /* Tabs */
     #fieldTabs .tab{border:1px solid var(--border);transition:background-color .2s,color .2s,transform .2s,box-shadow .2s}
@@ -55,11 +59,11 @@
     main{padding-top:var(--header-h)}
     .skeleton{position:relative;overflow:hidden;background:rgba(2,6,23,.06)!important}
     .skeleton::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,rgba(255,255,255,0)0,rgba(255,255,255,.6)50%,rgba(255,255,255,0)100%);animation:shimmer 1.4s infinite}
+    
     @keyframes shimmer{100%{transform:translateX(100%)}}
   </style>
 </head>
 <body class="bg-neutral-50 text-neutral-900">
-
   <!-- prof-main의 헤더 이식 -->
   <header>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
@@ -67,7 +71,7 @@
         <div class="w-9 h-9 rounded-xl grid place-items-center font-extrabold text-white shadow" style="background:linear-gradient(135deg,var(--primary),var(--primary-strong))">ME</div>
         <div class="text-lg font-bold">기계공학부</div>
       </a>
-      <nav aria-label="주요 메뉴" class="hidden md:block">
+      <nav aria-label="주요 메뉴" class="block">
         <ul class="flex gap-6 text-sm text-neutral-600">
           <li><a href="https://knu-me.github.io/overview/">메인으로</a></li>
           <li><a class="hover:text-neutral-900" href="https://knu-me.github.io/overview/brief/brief-main">한눈에보기</a></li>
@@ -75,9 +79,9 @@
       </nav>
     </div>
   </header>
-
   <!-- 탭 + 검색 -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-[var(--header-h)]">
+
     <div id="fieldTabs" class="flex flex-wrap gap-2">
       <button data-field="all" data-desc="카드를 누르면 교수님의 연구실 홈페이지로 들어갈 수 있습니다." class="tab active px-3 py-2 text-sm rounded-xl bg-neutral-900 text-white">전체</button>
       <button data-field="로봇 및 동역학" data-desc="휴머노이드/필드 로봇, 항공/지상 로봇 등 다양한 로봇과 로봇에 필요한 센서/엑츄에이터 설계 및 제어" class="tab px-3 py-2 text-sm rounded-xl bg-neutral-100 hover:bg-neutral-200">로봇 및 동역학</button>
@@ -85,16 +89,18 @@
       <button data-field="유체역학 및 항공" data-desc="유체역학, 전산유체역학(CFD), 난류/연소 및 추진 분야." class="tab px-3 py-2 text-sm rounded-xl bg-neutral-100 hover:bg-neutral-200">유체역학 및 항공</button>
       <button data-field="고체역학 및 재료" data-desc="구조/재료역학, 전산고체, 파괴역학 및 기능성 재료 분야." class="tab px-3 py-2 text-sm rounded-xl bg-neutral-100 hover:bg-neutral-200">고체역학 및 재료</button>
       <button data-field="생산공학" data-desc="제조공정, CAD/CAM, 나노·마이크로시스템 및 생산시스템 분야." class="tab px-3 py-2 text-sm rounded-xl bg-neutral-100 hover:bg-neutral-200">생산공학</button>
-      <div class="ml-auto flex items-center gap-3">
-        <div class="relative">
-          <input id="searchInput" type="search" placeholder="이름/전공 검색" class="w-44 sm:w-56 rounded-xl border border-neutral-200 bg-white px-4 py-2 text-sm shadow-soft focus:outline-none focus:ring-2 focus:ring-neutral-200"/>
+      <div class="ml-auto flex items-center gap-3 w-full sm:w-auto">
+      <div class="relative w-full sm:w-auto">
+         <input id="searchInput" type="search"
+          placeholder="이름/전공 검색"
+          class="w-full sm:w-80 rounded-xl border border-neutral-200 bg-white px-4 py-2 text-sm shadow-soft focus:outline-none focus:ring-2 focus:ring-neutral-200"/>
           <svg class="pointer-events-none absolute right-3 top-2.5 size-4 text-neutral-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         </div>
       </div>
     </div>
 
     <!-- 분야 설명 박스 -->
-    <div id="fieldInfo" class="mt-3">
+    <div id="fieldInfo" class="mt-3 mb-0">
       <div class="rounded-xl border border-neutral-200 bg-white/70 p-4 text-sm leading-6 text-neutral-700">
         <div class="flex items-start gap-2">
           <svg class="mt-0.5 size-5 shrink-0 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
@@ -105,9 +111,8 @@
   </section>
 
   <!-- 카드 그리드 -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pb-16">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4">
     <div id="grid" class="grid gap-5 sm:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-      
       <!-- 로봇 및 동역학 -->
       <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="로봇 및 동역학" data-name="노용래 Roh Yong Rae 음향 진동" data-home="https://home.knu.ac.kr/HOME/avl/index.htm">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/노용래.png" alt="노용래" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
