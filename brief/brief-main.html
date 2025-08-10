@@ -1,250 +1,256 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="KNU ME overview" />
-  <title>기계공학부 한눈에 보기</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>기계공학부 한눈에 보기</title>
+<meta content="light" name="color-scheme"/>
+<meta content="#ffffff" name="theme-color"/>
+<meta content="경북대학교 기계공학부를 한눈에 소개하는 요약 페이지" name="description">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
-      --main-red: #dd2026;
-      --main-gray: #666;
+      /* 메인 테마 변수 (index.html과 동일 톤) */
+      --bg: #f8fafc;         /* 배경 */
+      --bg-elev: #ffffff;    /* 승격 배경 */
+      --text: #0f172a;       /* 본문 글자 */
+      --muted: #475569;      /* 보조 텍스트 */
+      --primary: #2563eb;    /* 포인트 */
+      --primary-strong: #1d4ed8;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --ring: #93c5fd;
+      --radius: 16px;
+      --shadow: 0 6px 18px rgba(15,23,42,.06);
+      --maxw: 1200px;
+      --gutter: clamp(20px, 6vw, 32px);
+      --header-h: 72px;
+      color-scheme: light;
     }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: "Arial", sans-serif;
-      background-color: #f9fafc;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      padding: 40px 5vw;
-    }
-    .card {
-      position: relative;
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      display: block;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: var(--bg);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.13;
-      z-index: 0;
-    }
-    .card h2,
-    .card ul,
-    .card p,
-    .card img {
-      position: relative;
-      z-index: 1;
-    }
-    .card h2 {
-      font-size: 1.3rem;
-      color: var(--main-red);
-      margin-bottom: 0.75rem;
-    }
-    .card p, .card li {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: var(--main-gray);
-    }
-    .centercard
-    {
-      text-align: center;
-    }
-    ul {
-      padding-left: 1rem;
-      margin: 0;
-    }
-    .shortcut-icon-wrapper {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 6px 10px;
-      background-color: #f2f2f2;
-      border-radius: 6px;
-      font-size: 0.9em;
-      white-space: nowrap;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .shortcut-icon-wrapper:hover {
-      background-color: #e0e0e0;    /* hover 시 색 변화 */
-    }
-    .shortcut-icon {
-      width: 80px;
-      height: auto;
-      display: block;
-      pointer-events: none;
-    }
-    .company-list {
-      font-size: 0.85rem;
-      color: #444;
-    }
-    .small-gray {
-      font-size: 0.8rem;
-      color: gray;
-    }
-    .research-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 15px;
-  position: relative;
-  z-index: 1;
-}
+    @media (min-width: 600px){ :root{ --gutter: 28px; } }
+    @media (min-width: 960px){ :root{ --gutter: 32px; } }
 
-.research-item {
-  flex: 1 1 calc(50% - 10px);
-  background: #eeeeee;
-  border: 1px solid #d8d8d8;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  color: #660000;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: 'Inter','Noto Sans KR',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,0.12), transparent 50%),
+        radial-gradient(800px 400px at 90% -20%, rgba(14,165,233,0.14), transparent 50%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-.research-item:hover {
-  background: #f2d9d9;
-  text-decoration: underline;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-footer{margin:28px 0 10px; color:var(--muted); font-size:13px}
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding-left:var(--gutter); padding-right:var(--gutter); }
 
-  </style>
-</head>
+    /* Header (메인과 동일 스타일) */
+    header{
+      position:fixed; inset:0 0 auto 0; z-index:9999;
+      background: color-mix(in oklab, var(--bg-elev) 92%, transparent);
+      backdrop-filter: saturate(1.2) blur(12px);
+      -webkit-backdrop-filter: saturate(1.2) blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{ min-height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+    .logo{ width:36px; height:36px; border-radius:10px; display:grid; place-items:center; font-weight:800; background:linear-gradient(135deg, var(--primary), var(--primary-strong)); color:#fff; box-shadow:var(--shadow); }
+    .brand .title{ font-weight:700; letter-spacing:-0.02em; }
+    nav ul{ display:flex; gap:18px; list-style:none; padding:0; margin:0; }
+    nav a{ text-decoration:none; color:var(--muted); font-weight:500; }
+    nav a:hover, nav a:focus{ color:var(--text); }
+
+    main{ padding-top: var(--header-h); }
+    html{ scroll-padding-top: calc(var(--header-h) + 8px); }
+
+    /* Page head (서브페이지 히어로) */
+    .page-head{ padding:32px 0 18px; }
+    .eyebrow{ color:var(--primary); font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:12px; }
+    .headline{ font-size:clamp(24px, 4vw, 36px); line-height:1.2; font-weight:800; letter-spacing:-0.02em; margin:8px 0 6px; }
+    .sub{ color:var(--muted); }
+
+    /* Cards grid (메인 quick 카드와 톤 맞춤) */
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; }
+    .span-12{ grid-column: span 12; }
+    .span-6{ grid-column: span 12; }
+    .span-4{ grid-column: span 12; }
+    @media (min-width:960px){ .span-6{ grid-column: span 6; } .span-4{ grid-column: span 4; } }
+
+    .card{ position:relative; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; overflow:hidden; text-decoration:none; color:inherit; display:block; }
+    .card:hover{ transform: translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.08); }
+    .card::before{ content:""; position:absolute; inset:0; background-image:var(--bgimg); background-size:cover; background-position:center; opacity:.12; }
+    .card > *{ position:relative; z-index:1; }
+    .card h3{ margin:0 0 8px; font-size:18px; letter-spacing:-0.01em; color:var(--primary-strong); }
+    .card p, .card li{ color:var(--muted); font-size:14px; }
+
+    /* index.html과 동일한 CTA 패턴 */
+    .cta{
+      display:inline-flex; align-items:center; gap:8px;
+      margin-top:10px; color:var(--primary); text-decoration:none; font-weight:600;
+    }
+    .cta:hover{ color:var(--primary-strong); }
+
+    /* Research centers pill list */
+    .pill-list{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .pill{ flex: 1 1 calc(50% - 10px); text-align:center; border:1px solid var(--border); background:#eef2ff; color:#312e81; padding:10px; border-radius:10px; text-decoration:none; font-weight:600; font-size:14px; }
+    .pill:hover{ background:#e0e7ff; }
+
+    footer{ margin-top:32px; border-top:1px solid var(--border); background:color-mix(in oklab, var(--bg-elev) 78%, transparent); }
+    .footer-wrap{ padding:18px 0; color:var(--muted); font-size:14px; }
+
+    /* 모바일 보정 */
+    @media (max-width:640px){ :root{ --header-h:60px; } .logo{ width:32px; height:32px; } nav a{ font-size:13px; } }
+    @media (max-width:400px){ :root{ --header-h:56px; } .brand .title{ font-size:15px; } nav a{ font-size:12px; } }
+  
+    .card-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:8px;
+    }
+    .card-head h3{
+      margin:0;
+      font-size:18px;
+      font-weight:700;
+      color:var(--primary-strong);
+    }
+    .card-head .cta{
+      margin-top:0;
+      flex-shrink:0;
+    }
+    </style>
+</meta></head>
 <body>
-  <div class="container">
+<a class="sr-only" href="#main">본문으로 건너뛰기</a>
+<!-- Header -->
+<header>
+<div class="wrap nav">
+<a aria-label="경북대학교 기계공학부 홈" class="brand" href="/">
+<div aria-hidden="true" class="logo">ME</div>
+<div class="title">기계공학부</div>
+</a>
+<nav aria-label="주요 메뉴">
+<ul>
+<li><a href="https://knu-me.github.io/overview/">메인으로</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="main">
+<!-- Page head -->
+<section class="page-head">
+<div class="wrap">
+<span class="eyebrow">OVERVIEW</span>
+<h1 class="headline">기계공학부 한눈에 보기</h1>
+<p class="sub">경북대학교 기계공학부를 한눈에 보는 페이지입니다.</p>
+</div>
+</section>
+<section>
+<div class="wrap grid">
+<!-- 경쟁력 (a.card → article.card + 내부 a.cta) -->
+<article class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image1.png')"><div class="card-head"><h3>경북대 기계공학부의 경쟁력</h3><a class="cta" href="https://knu-me.github.io/overview/comp/comp-main" rel="noopener" target="_blank">바로가기 →</a></div>
 
+<ul>
+<li><strong>THE 세계대학평가</strong> – 국내 국립대 <strong style="color: var(--primary-strong);">2위</strong> <span style="color:var(--muted); font-size:12px;">(2025년 공학분야 기준)</span></li>
+<li><strong>BK21 사업 연속 선정</strong> – 연구·교육 역량 인정</li>
+<li><strong>산학협력</strong> – 현대중공업, LG전자 등 국내 주요기업과 공동 연구</li>
+<li><strong>창업 및 글로벌 혁신</strong> – 학부생 창업 기업의 국제 전시회(CES 등) 진출</li>
+</ul>
 
+</article>
+<!-- 교수진 -->
+<article class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image2.png')"><div class="card-head"><h3>교수진의 교육 및 연구 역량</h3><a class="cta" href="https://knu-me.github.io/overview/prof/prof-main" rel="noopener" target="_blank">바로가기 →</a></div>
 
-    <a class="card" href="https://knu-me.github.io/overview/comp/comp-main" target="_blank" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image1.png')">
-      <h2>경북대 기계공학부의 경쟁력</h2>
-      <ul>
-        <li><strong>THE 세계대학평가</strong> – 국내 국립대 <strong style="color: var(--main-red);">2위</strong> <span class="small-gray">(2025년 공학분야 기준)</span></li>
-        <li><strong>BK21 사업 연속 선정</strong> – 연구·교육 역량 인정</li>
-        <li><strong>산학협력</strong> – 현대중공업, LG전자 등 국내 주요기업과 공동 연구</li>
-        <li><strong>창업 및 글로벌 혁신</strong> – 학부생 창업 기업의 국제 전시회(CES 등) 진출</li>
-       <!-- <li><strong>24인의 교수진</strong> – 세계 2% 과학자 포함 우수한 교수진</li>-->
-      </ul>
-      <span class="shortcut-icon-wrapper">바로가기 🔗</span>
-      <!--
-      <span class="shortcut-icon-wrapper">
-        <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/index/shortcut.png" class="shortcut-icon" alt="바로가기">
-      </span>
-      -->
-    </a>
-    <a class="card" href="https://knu-me.github.io/overview/prof/prof-main" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image2.png')">
-      <h2>교수진의 교육 및 연구 역량</h2>
-      <ul>
-        <li><strong>24인의 교수진</strong> – 세계 2% 과학자 포함 우수한 교수진</li>
-        <li><strong>SCI(E) 논문</strong> – 최근 5년간 <strong style="color: var(--main-red);">N편 이상</strong></li>
-        <li><strong>국책연구 과제</strong> – 과기부 등 정부 지원 연구과제 다수 수행</li>
-        <li><strong>인력양성 사업</strong> – BK21, RISE(로봇,모빌리티,반도체) 등 인력양성사업 수행</li>
-        <li><strong>핵심성과 분야</strong> – 로봇, 자동차, 반도체, 에너지 등 미래 핵심 성장 동력 주도</li>
-      </ul>
-      <span class="shortcut-icon-wrapper">바로가기 🔗</span>
-    </a>
-     <div class="card" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image7.png')">
-      <h2>글로벌 역량강화 프로그램</h2>
-      <ul>
-        <li>리투아니아 등 <strong>교환 학생 프로그램</strong></li>
-        <li>UCLA 등 해외 유수 대학과 <strong>국제공동연구</strong> </li>
-        <li><strong>영어 전용 과목</strong> 및 <strong>국제 학회 참가 지원</strong></li>
-      </ul>
-    </div>
-    <div class="card" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image6.png')">
-        <h2>학생 주도 연구 및 활동</h2>
-          <li><strong>4개의 학술동아리</strong><span class="small-gray">(자동차·로봇·항공우주·발명분야)</span> 및 <strong>공학교육혁신센터를</strong> 통한 학생주도연구 지원</li>
-          <li><strong>학부생 연구원</strong> 참여 및 국내외 학회 발표</li>
-          <li>대학생로켓대회 등 <strong> 학술경진대회</strong> 다수 수상</li>
-        </ul>
-    </div>
-    <a class="card" href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1754034861" target="_blank" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image3.png')">
-      <h2>진출 분야</h2>
-      <p>
-        <strong>로봇</strong> <span class="company-list">(현대로보틱스, 한국로봇융합연구원)</span> <br>
-        <strong>자동차</strong> <span class="company-list">(현대자동차, 현대모비스, 만도)</span><br>
-        <strong>에너지</strong> <span class="company-list">(한국전력, 한국가스공사, 두산중공업)</span><br>
-        <strong>항공·방산</strong> <span class="company-list">(국방과학연구소, 한화에어로스페이스, LIG넥스원, KAI)</span><br>
-        <strong>반도체</strong> <span class="company-list">(삼성전자, SK하이닉스)</span> <br>
-        <strong>조선·해양</strong> <span class="company-list">(삼성중공업, HD현대)</span>
-      </p>
-      <span class="shortcut-icon-wrapper">바로가기 🔗</span>
+<ul>
+<li><strong>24인의 교수진</strong> – 세계 2% 과학자 포함 우수한 교수진</li>
+<li><strong>SCI(E) 논문</strong> – 최근 5년간 <strong style="color: var(--primary-strong);">N편 이상</strong></li>
+<li><strong>국책연구 과제</strong> – 과기부 등 정부 지원 연구과제 다수 수행</li>
+<li><strong>인력양성 사업</strong> – BK21, RISE(로봇·모빌리티·반도체) 등 수행</li>
+<li><strong>핵심성과 분야</strong> – 로봇, 자동차, 반도체, 에너지 등</li>
+</ul>
 
-    </a>
+</article>
+<!-- 글로벌 역량강화 프로그램 (내용 카드) -->
+<div class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image7.png')">
+<h3>글로벌 역량강화 프로그램</h3>
+<ul>
+<li>리투아니아 등 <strong>교환 학생 프로그램</strong></li>
+<li>UCLA 등 해외 유수 대학과 <strong>국제공동연구</strong></li>
+<li><strong>영어 전용 과목</strong> 및 <strong>국제 학회 참가 지원</strong></li>
+</ul>
+</div>
+<!-- 학생 주도 연구 및 활동 (내용 카드) -->
+<div class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image6.png')">
+<h3>학생 주도 연구 및 활동</h3>
+<ul>
+<li><strong>4개의 학술동아리</strong> <span style="color:var(--muted); font-size:12px;">(자동차·로봇·항공우주·발명)</span> 및 <strong>공학교육혁신센터</strong>를 통한 학생주도연구</li>
+<li><strong>학부생 연구원</strong> 참여 및 국내외 학회 발표</li>
+<li>대학생로켓대회 등 <strong>학술경진대회</strong> 다수 수상</li>
+</ul>
+</div>
+<!-- 진출 분야 -->
+<article class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image3.png')"><div class="card-head"><h3>진출 분야</h3><a class="cta" href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1754034861" rel="noopener" target="_blank">바로가기 →</a></div>
 
-    <a class="card" href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1754034861" target="_blank" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image4.png')">
-      <h2>졸업생 취업 현황</h2>
-      <ul>
-        <li><strong>졸업생 취업률</strong>: <strong style="color: var(--main-red);">62%(학부), 86% (대학원)</strong> <span class="small-gray">(23년 통계 기준)</span></li>
-        <li><strong>학부/대학원 취·창업 현황</strong>: <br>
-            대기업 <strong style="color: var(--main-red);">51명</strong>, 중견기업 <strong style="color: var(--main-red);">17명</strong> <br>
-            중소기업 <strong style="color: var(--main-red);">14명</strong>, 공공기관 및 공기업 <strong style="color: var(--main-red);">5명</strong></li>
-        <li><strong>교수 임용 현황</strong><br>
-           국내외 주요 대학에 <strong style="color: var(--main-red);">N명</strong> 임용</li>
-      </ul>
-      <span class="shortcut-icon-wrapper">바로가기 🔗</span>
+<p>
+<strong>로봇</strong> <span style="color:var(--muted); font-size:13px;">(현대로보틱스, 한국로봇융합연구원)</span> <br/>
+<strong>자동차</strong> <span style="color:var(--muted); font-size:13px;">(현대자동차, 현대모비스, 만도)</span><br/>
+<strong>에너지</strong> <span style="color:var(--muted); font-size:13px;">(한국전력, 한국가스공사, 두산중공업)</span><br/>
+<strong>항공·방산</strong> <span style="color:var(--muted); font-size:13px;">(국방과학연구소, 한화에어로스페이스, LIG넥스원, KAI)</span><br/>
+<strong>반도체</strong> <span style="color:var(--muted); font-size:13px;">(삼성전자, SK하이닉스)</span><br/>
+<strong>조선·해양</strong> <span style="color:var(--muted); font-size:13px;">(삼성중공업, HD현대)</span>
+</p>
 
-    </a>
-    <div class="card centercard" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image5.png')">
-      <h2>연구기관</h2>
-      <p><strong>"미래 산업을 선도하는 기계공학 연구센터"</strong></p>
-      <!--
-      <ul>
-        <a href="https://imet.knu.ac.kr/" style="color: #003366; text-decoration: underline;" target="_blank">기계연구소</a> <br>
-        <a href="https://home.knu.ac.kr/HOME/acoustic" style="color: #003366; text-decoration: underline;" target="_blank">음향공학연구소</a> <br>
-        <a href="https://kddm.knu.ac.kr/" style="color: #003366; text-decoration: underline;" target="_blank">디지털설계및생산기술연구소</a> <br>
-        <a href="https://iedt.knu.ac.kr/" style="color: #003366; text-decoration: underline;" target="_blank">공학설계연구소</a> <br>
-      </ul>
-      -->
-       <div class="research-list">
-        <a href="https://imet.knu.ac.kr/" target="_blank" class="research-item">기계연구소</a>
-        <a href="https://iedt.knu.ac.kr/" target="_blank" class="research-item">공학설계연구소</a>
-        <a href="https://home.knu.ac.kr/HOME/acoustic" target="_blank" class="research-item">음향공학<br>연구소</a>
-        <a href="https://kddm.knu.ac.kr/" target="_blank" class="research-item">디지털설계 및 <br> 생산기술연구소</a>
-      </div>
-    </div>
+</article>
+<!-- 취업 현황 -->
+<article class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image4.png')"><div class="card-head"><h3>졸업생 취업 현황</h3><a class="cta" href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1754034861" rel="noopener" target="_blank">바로가기 →</a></div>
 
-    <div class="card centercard" style="--bg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image8.png')">
-      <h2>학부/대학원 장학금</h2>
-      <p><strong>"미래를 투자 받는 기계공학부"</strong></p>
-      <p><em>부담 없이 학업에 전념할 수 있는 다양한 장학제도</em></p>
-      <ul>
-        장학금 수혜율: <strong style="color: var(--main-red);">66.5%</strong><br>
-        1인당 평균 수혜금: <strong>154만원</strong><br>
-        등록금 대비 수혜율: <strong>65%</strong><br>
-      </ul>
-    </div>
-    <footer>
-         Copyright © IMaC Lab. 2025. All Rights Reserved. 본 페이지는 경북대학교 기계공학부 홍보용 안내 페이지 입니다.
-    </footer>
-  </div>
+<ul>
+<li><strong>졸업생 취업률</strong>: <strong style="color: var(--primary-strong);">62%(학부), 86%(대학원)</strong> <span style="color:var(--muted); font-size:12px;">(2023년 통계)</span></li>
+<li><strong>학부/대학원 취·창업 현황</strong>: <br>
+대기업 <strong style="color: var(--primary-strong);">51명</strong>, 중견기업 <strong style="color: var(--primary-strong);">17명</strong>, 중소기업 <strong style="color: var(--primary-strong);">14명</strong>, 공공기관·공기업 <strong style="color: var(--primary-strong);">5명</strong></li>
+<li><strong>교수 임용 현황</strong>: 국내외 주요 대학에 <strong style="color: var(--primary-strong);">N명</strong> 임용</li>
+</ul>
+
+</article>
+<!-- 연구기관 (내용 카드 + pill 링크) -->
+<div class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image5.png')">
+<h3>연구기관</h3>
+<p><strong>“미래 산업을 선도하는 기계공학 연구센터”</strong></p>
+<div class="pill-list">
+<a class="pill" href="https://imet.knu.ac.kr/" rel="noopener" target="_blank">기계연구소</a>
+<a class="pill" href="https://iedt.knu.ac.kr/" rel="noopener" target="_blank">공학설계연구소</a>
+<a class="pill" href="https://home.knu.ac.kr/HOME/acoustic" rel="noopener" target="_blank">음향공학<br>연구소</a>
+<a class="pill" href="https://kddm.knu.ac.kr/" rel="noopener" target="_blank">디지털설계 및<br>생산기술연구소</a>
+</div>
+</div>
+<!-- 장학금 (내용 카드) -->
+<div class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image8.png')">
+<h3>학부/대학원 장학금</h3>
+<p><strong>“미래를 투자 받는 기계공학부”</strong><br/><em>부담 없이 학업에 전념할 수 있는 다양한 장학제도</em></p>
+<ul>
+<li>장학금 수혜율: <strong style="color: var(--primary-strong);">66.5%</strong></li>
+<li>1인당 평균 수혜금: <strong>154만원</strong></li>
+<li>등록금 대비 수혜율: <strong>65%</strong></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer>
+<div class="wrap footer-wrap">
+<div>© <span id="y"></span> Kyungpook National University · Department of Mechanical Engineering</div>
+<div>개인정보처리방침 · 이용약관</div>
+</div>
+</footer>
+<script>
+    // 년도 자동 반영
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
