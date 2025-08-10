@@ -78,7 +78,8 @@
     .span-12{ grid-column: span 12; }
     .span-6{ grid-column: span 12; }
     .span-4{ grid-column: span 12; }
-    @media (min-width:960px){ .span-6{ grid-column: span 6; } .span-4{ grid-column: span 4; } }
+    .span-6-centeralign{grid-column: span 12; text-align: center;}
+    @media (min-width:960px){ .span-6{ grid-column: span 6; } .span-6-centeralign{ grid-column: span 6; }  .span-4{ grid-column: span 4; } }
 
     .card{ position:relative; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; overflow:hidden; text-decoration:none; color:inherit; display:block; }
     .card:hover{ transform: translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.08); }
@@ -92,11 +93,11 @@
       display:inline-flex; align-items:center; gap:8px;
       margin-top:10px; color:var(--primary); text-decoration:none; font-weight:600;
     }
-    .cta:hover{ color:var(--primary-strong); }
+    .cta:hover{ color:var(--primary-strong); color:#17233f}
 
     /* Research centers pill list */
     .pill-list{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-    .pill{ flex: 1 1 calc(50% - 10px); text-align:center; border:1px solid var(--border); background:#eef2ff; color:#312e81; padding:10px; border-radius:10px; text-decoration:none; font-weight:600; font-size:14px; }
+    .pill{ flex: 1 1 calc(50% - 10px); text-align:center; border:1px solid var(--border); background:#eef2ff; color:#312e81; padding:5px; border-radius:10px; text-decoration:none; font-weight:600; font-size:14px; }
     .pill:hover{ background:#e0e7ff; }
 
     footer{ margin-top:32px; border-top:1px solid var(--border); background:color-mix(in oklab, var(--bg-elev) 78%, transparent); }
@@ -218,7 +219,7 @@
 
 </article>
 <!-- 연구기관 (내용 카드 + pill 링크) -->
-<div class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image5.png')">
+<div class="card span-6-centeralign" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image5.png')">
 <h3>연구기관</h3>
 <p><strong>“미래 산업을 선도하는 기계공학 연구센터”</strong></p>
 <div class="pill-list">
@@ -229,14 +230,14 @@
 </div>
 </div>
 <!-- 장학금 (내용 카드) -->
-<div class="card span-6" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image8.png')">
+<div class="card span-6-centeralign" style="--bgimg:url('https://raw.githubusercontent.com/knu-me/overview/main/images/index/image8.png')">
 <h3>학부/대학원 장학금</h3>
 <p><strong>“미래를 투자 받는 기계공학부”</strong><br/><em>부담 없이 학업에 전념할 수 있는 다양한 장학제도</em></p>
-<ul>
-<li>장학금 수혜율: <strong style="color: var(--primary-strong);">66.5%</strong></li>
-<li>1인당 평균 수혜금: <strong>154만원</strong></li>
-<li>등록금 대비 수혜율: <strong>65%</strong></li>
-</ul>
+<p>
+장학금 수혜율: <strong style="color: var(--primary-strong);">66.5%</strong> <br>
+1인당 평균 수혜금: <strong>154만원</strong> <br>
+등록금 대비 수혜율: <strong>65%</strong> <br>
+</p>
 </div>
 </div>
 </section>

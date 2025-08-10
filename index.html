@@ -18,7 +18,7 @@
       --text: #0f172a;       /* 본문 글자 */
       --muted: #475569;      /* 보조 텍스트 */
       --primary: #2563eb;    /* 포인트(요청색) */
-      --primary-strong: #1d4ed8;
+      --primary-strong: #0f172a;
       --card: #ffffff;
       --border: #e2e8f0;
       --ring: #93c5fd;
@@ -145,7 +145,7 @@
     .card h3 { margin:0 0 6px; font-size:16px; letter-spacing:-0.01em; }
     .card p { margin:0; color:var(--muted); font-size:14px; }
     .card .cta { display:inline-flex; align-items:center; gap:8px; margin-top:10px; color:var(--primary); text-decoration:none; font-weight:600; }
-    .card .cta:hover { color:var(--primary-strong); }
+    .card .cta:hover { color:var(--primary-strong);  color:#17233f}
     @media (min-width: 720px){ .card{ grid-column:span 4; } }
 
     /* Sections */
@@ -232,6 +232,16 @@
 
     /* 헤더 내용 높이 보정(선택) */
     .nav{ min-height: var(--header-h); display:flex; align-items:center; }
+
+.section-head a {
+  color: var(--primary);           /* 기본 색상 */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.section-head a:hover {
+  color:#17233f;    /* 호버 시 진한 포인트 색상 */
+}
   </style>
 
 </head>
