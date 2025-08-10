@@ -4,32 +4,79 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>경북대 기계공학부 교수진</title>
+
+  <!-- Tailwind (기존 index 구조 유지용) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { theme: { extend: { boxShadow: { soft: '0 2px 12px rgba(0,0,0,0.08)'} } } }
   </script>
+
+  <!-- prof-main의 head 톤 추가: color-scheme, theme-color, description, 폰트 -->
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="경북대학교 기계공학부 교수진 페이지" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Design Tokens from prof-main -->
   <style>
-    .skeleton{position:relative;overflow:hidden;background:rgba(0,0,0,.06)}
+    :root{
+      --bg:#f8fafc; --bg-elev:#ffffff; --text:#0f172a; --muted:#475569;
+      --primary:#2563eb; --primary-strong:#1d4ed8; --card:#ffffff; --border:#e2e8f0; --ring:#93c5fd;
+      --radius:16px; --shadow:0 6px 18px rgba(15,23,42,.06); --header-h:72px;
+    }
+    html,body{height:100%}
+    body{
+      font-family:'Inter','Noto Sans KR',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,0.12), transparent 50%),
+        radial-gradient(800px 400px at 90% -20%, rgba(14,165,233,0.14), transparent 50%),
+        var(--bg);
+      color:var(--text);
+    }
+    header{
+      position:sticky;top:0;z-index:50;
+      background: color-mix(in oklab, var(--bg-elev) 92%, transparent);
+      backdrop-filter:saturate(1.15) blur(12px);
+      -webkit-backdrop-filter:saturate(1.15) blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    /* Tabs */
+    #fieldTabs .tab{border:1px solid var(--border);transition:background-color .2s,color .2s,transform .2s,box-shadow .2s}
+    #fieldTabs .tab.active{background:var(--primary)!important;color:#fff!important;border-color:transparent;box-shadow:var(--shadow);transform:translateY(-1px)}
+    #fieldTabs .tab:not(.active):hover{background:#eef2ff;border-color:#c7d2fe}
+    /* Cards */
+    .card{border-radius:var(--radius)!important;box-shadow:var(--shadow)!important;border:1px solid var(--border)!important}
+    /* Search */
+    #searchInput{border-color:var(--border)!important;background:#fff!important}
+    #searchInput:focus{outline:none!important;box-shadow:0 0 0 3px color-mix(in oklab, var(--ring) 60%, transparent);border-color:#bfdbfe!important}
+    .text-neutral-500{color:var(--muted)!important}
+    main{padding-top:var(--header-h)}
+    .skeleton{position:relative;overflow:hidden;background:rgba(2,6,23,.06)!important}
     .skeleton::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,rgba(255,255,255,0)0,rgba(255,255,255,.6)50%,rgba(255,255,255,0)100%);animation:shimmer 1.4s infinite}
     @keyframes shimmer{100%{transform:translateX(100%)}}
   </style>
 </head>
 <body class="bg-neutral-50 text-neutral-900">
-  <!-- 헤더 -->
-  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
-      <h1 class="text-ml sm:text-2xl font-bold">경북대 기계공학부 교수진</h1>
-      <!--<span class="ml-1 text-xs text-neutral-500" id="countBadge">(총 24인)</span>-->
-      <div class="ml-auto flex items-center gap-3">
-        <div class="relative">
-          <input id="searchInput" type="search" placeholder="이름/전공 검색" class="w-40 rounded-xl border border-neutral-200 bg-white px-4 py-2 text-sm shadow-soft focus:outline-none focus:ring-2 focus:ring-neutral-200"/>
-          <svg class="pointer-events-none absolute right-3 top-2.5 size-4 text-neutral-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        </div>
-      </div>
+
+  <!-- prof-main의 헤더 이식 -->
+  <header>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a class="flex items-center gap-3 text-inherit no-underline" href="#" aria-label="경북대학교 기계공학부 홈">
+        <div class="w-9 h-9 rounded-xl grid place-items-center font-extrabold text-white shadow" style="background:linear-gradient(135deg,var(--primary),var(--primary-strong))">ME</div>
+        <div class="text-lg font-bold">기계공학부</div>
+      </a>
+      <nav aria-label="주요 메뉴" class="hidden md:block">
+        <ul class="flex gap-6 text-sm text-neutral-600">
+          <li><a href="https://knu-me.github.io/overview/">메인으로</a></li>
+          <li><a class="hover:text-neutral-900" href="https://knu-me.github.io/overview/brief/brief-main">한눈에보기</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- 탭 필터 -->
+  <!-- 탭 + 검색 -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
     <div id="fieldTabs" class="flex flex-wrap gap-2">
       <button data-field="all" data-desc="카드를 누르면 교수님의 연구실 홈페이지로 들어갈 수 있습니다." class="tab active px-3 py-2 text-sm rounded-xl bg-neutral-900 text-white">전체</button>
@@ -38,31 +85,31 @@
       <button data-field="유체역학 및 항공" data-desc="유체역학, 전산유체역학(CFD), 난류/연소 및 추진 분야." class="tab px-3 py-2 text-sm rounded-xl bg-neutral-100 hover:bg-neutral-200">유체역학 및 항공</button>
       <button data-field="고체역학 및 재료" data-desc="구조/재료역학, 전산고체, 파괴역학 및 기능성 재료 분야." class="tab px-3 py-2 text-sm rounded-xl bg-neutral-100 hover:bg-neutral-200">고체역학 및 재료</button>
       <button data-field="생산공학" data-desc="제조공정, CAD/CAM, 나노·마이크로시스템 및 생산시스템 분야." class="tab px-3 py-2 text-sm rounded-xl bg-neutral-100 hover:bg-neutral-200">생산공학</button>
+      <div class="ml-auto flex items-center gap-3">
+        <div class="relative">
+          <input id="searchInput" type="search" placeholder="이름/전공 검색" class="w-44 sm:w-56 rounded-xl border border-neutral-200 bg-white px-4 py-2 text-sm shadow-soft focus:outline-none focus:ring-2 focus:ring-neutral-200"/>
+          <svg class="pointer-events-none absolute right-3 top-2.5 size-4 text-neutral-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+      </div>
     </div>
 
     <!-- 분야 설명 박스 -->
     <div id="fieldInfo" class="mt-3">
       <div class="rounded-xl border border-neutral-200 bg-white/70 p-4 text-sm leading-6 text-neutral-700">
         <div class="flex items-start gap-2">
-            <svg class="mt-0.5 size-5 shrink-0 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-            </svg>
+          <svg class="mt-0.5 size-5 shrink-0 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
           <p id="fieldDesc">카드를 누르면 교수님의 연구실 홈페이지로 들어갈 수 있습니다.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 그리드 -->
+  <!-- 카드 그리드 -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pb-16">
     <div id="grid" class="grid gap-5 sm:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-
+      
       <!-- 로봇 및 동역학 -->
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="로봇 및 동역학" 
-        data-name="노용래 Roh Yong Rae 음향 진동"
-        data-home="https://home.knu.ac.kr/HOME/avl/index.htm"
-        >
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="로봇 및 동역학" data-name="노용래 Roh Yong Rae 음향 진동" data-home="https://home.knu.ac.kr/HOME/avl/index.htm">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/노용래.png" alt="노용래" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">노용래 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -71,8 +118,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:yryong@knu.ac.kr">yryong@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="로봇 및 동역학" data-name="황창순 Hwang Chang Soon 로봇시스템">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="로봇 및 동역학" data-name="황창순 Hwang Chang Soon 로봇시스템">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/황창순.png" alt="황창순" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">황창순 <span class="ml-1 text-xs text-neutral-500">부교수</span></h3>
@@ -81,8 +128,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:robot@knu.ac.kr">robot@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="로봇 및 동역학" data-name="강남철 Kang Namcheol 동역학 진동">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="로봇 및 동역학" data-name="강남철 Kang Namcheol 동역학 진동">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/강남철.png" alt="강남철" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">강남철 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -91,8 +138,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:nckang@knu.ac.kr">nckang@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="로봇 및 동역학" data-name="이학 Yi Hak 필드로봇" data-home="https://yihak0442.wixsite.com/robot">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="로봇 및 동역학" data-name="이학 Yi Hak 필드로봇" data-home="https://yihak0442.wixsite.com/robot">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/이학.png" alt="이학" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">이학 <span class="ml-1 text-xs text-neutral-500">부교수</span></h3>
@@ -101,8 +148,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:yihaK@knu.ac.kr">yihaK@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="로봇 및 동역학" data-name="오건영 Oh Keonyoung 제어 재활공학" data-home="https://sites.google.com/view/biorobot">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="로봇 및 동역학" data-name="오건영 Oh Keonyoung 제어 재활공학" data-home="https://sites.google.com/view/biorobot">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/오건영.png" alt="오건영" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">오건영 <span class="ml-1 text-xs text-neutral-500">조교수</span></h3>
@@ -111,8 +158,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:kyoh@knu.ac.kr">kyoh@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="로봇 및 동역학" data-name="김진욱 Kim Jinwook 진동 음향" data-home="https://sites.google.com/view/vibroacoustics-meta-lab/home">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="로봇 및 동역학" data-name="김진욱 Kim Jinwook 진동 음향" data-home="https://sites.google.com/view/vibroacoustics-meta-lab/home">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/김진욱.png" alt="김진욱" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">김진욱 <span class="ml-1 text-xs text-neutral-500">조교수</span></h3>
@@ -121,8 +168,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:jinwookkim@knu.ac.kr">jinwookkim@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="로봇 및 동역학" data-name="이상헌 Lee Sangheon 메카트로닉스 제어 모빌리티" data-home="https://imac.super.site">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="로봇 및 동역학" data-name="이상헌 Lee Sangheon 메카트로닉스 제어 모빌리티" data-home="https://imac.super.site">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/이상헌.png" alt="이상헌" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">이상헌 <span class="ml-1 text-xs text-neutral-500">조교수</span></h3>
@@ -133,8 +180,7 @@
       </article>
 
       <!-- 열역학 및 에너지 -->
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="열역학 및 에너지" data-name="홍정구 Hong Jung Goo 연소공학" data-home="https://jghong70.wixsite.com/knucel">
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="열역학 및 에너지" data-name="홍정구 Hong Jung Goo 연소공학" data-home="https://jghong70.wixsite.com/knucel">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/홍정구.png" alt="홍정구" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">홍정구 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -143,8 +189,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:jghong70@knu.ac.kr">jghong70@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" 
-        data-field="열역학 및 에너지" data-name="박철우 Park Cheol Woo 바이오유체 실험열유체" data-home="https://sites.google.com/site/knubefelab">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="열역학 및 에너지" data-name="박철우 Park Cheol Woo 바이오유체 실험열유체" data-home="https://sites.google.com/site/knubefelab">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/박철우.png" alt="박철우" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">박철우 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -153,8 +199,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:chwoopark@knu.ac.kr">chwoopark@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" 
-         data-field="열역학 및 에너지" data-name="박일석 Park Il Seouk 응용열전달" data-home="https://sites.google.com/view/ahtlknu/home">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="열역학 및 에너지" data-name="박일석 Park Il Seouk 응용열전달" data-home="https://sites.google.com/view/ahtlknu/home">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/박일석.png" alt="박일석" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">박일석 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -163,8 +209,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:einstein@knu.ac.kr">einstein@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="열역학 및 에너지" data-name="조대성 Jo Dae seong 다상열유체" data-home="https://daeseongjo.wixsite.com/mtfl">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="열역학 및 에너지" data-name="조대성 Jo Dae seong 다상열유체" data-home="https://daeseongjo.wixsite.com/mtfl">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/조대성.png" alt="조대성" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">조대성 <span class="ml-1 text-xs text-neutral-500">부교수</span></h3>
@@ -173,8 +219,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:djo@knu.ac.kr">djo@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="열역학 및 에너지" data-name="남형석 Nam Hyungseok 에너지 CCUS" data-home="https://sites.google.com/view/ceelnam/home">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="열역학 및 에너지" data-name="남형석 Nam Hyungseok 에너지 CCUS" data-home="https://sites.google.com/view/ceelnam/home">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/남형석.png" alt="남형석" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">남형석 <span class="ml-1 text-xs text-neutral-500">조교수</span></h3>
@@ -183,9 +229,9 @@
           <a class="block text-[11px] text-blue-600" href="mailto:namhs219@knu.ac.kr">namhs219@knu.ac.kr</a>
         </div>
       </article>
+
       <!-- 유체역학 및 항공 -->
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="유체역학 및 항공" data-name="손창현 Sohn Chang Hyun 전산유체역학 CFD">
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="유체역학 및 항공" data-name="손창현 Sohn Chang Hyun 전산유체역학 CFD">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/손창현.png" alt="손창현" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">손창현 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -194,8 +240,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:chsohn@knu.ac.kr">chsohn@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="유체역학 및 항공" data-name="박태선 Park Tae Seon CFD 난류 연소 열전달" data-home="https://home.knu.ac.kr/HOME/turb/">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="유체역학 및 항공" data-name="박태선 Park Tae Seon CFD 난류 연소 열전달" data-home="https://home.knu.ac.kr/HOME/turb/">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/박태선.png" alt="박태선" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">박태선 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -204,8 +250,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:tsparkjp@knu.ac.kr">tsparkjp@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="유체역학 및 항공" data-name="최상헌 Choi Sanghun 기계학습 유체역학" data-home="https://mlfm.knu.ac.kr/">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="유체역학 및 항공" data-name="최상헌 Choi Sanghun 기계학습 유체역학" data-home="https://mlfm.knu.ac.kr/">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/최상헌.png" alt="최상헌" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">최상헌 <span class="ml-1 text-xs text-neutral-500">부교수</span></h3>
@@ -214,7 +260,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:s-choi@knu.ac.kr">s-choi@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  data-field="유체역학 및 항공" data-name="이정표 Lee Jungpyo 추진 연소공학">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="유체역학 및 항공" data-name="이정표 Lee Jungpyo 추진 연소공학">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/이정표.png" alt="이정표" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">이정표 <span class="ml-1 text-xs text-neutral-500">부교수</span></h3>
@@ -223,9 +270,9 @@
           <a class="block text-[11px] text-blue-700" href="mailto:jungpyo@knu.ac.kr">jungpyo@knu.ac.kr</a>
         </div>
       </article>
+
       <!-- 고체역학 및 재료 -->
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="고체역학 및 재료" data-name="곽문규 Kwak Moon Kyu 멀티스케일 구조시스템" data-home="https://sites.google.com/view/kwakslab/">
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="고체역학 및 재료" data-name="곽문규 Kwak Moon Kyu 멀티스케일 구조시스템" data-home="https://sites.google.com/view/kwakslab/">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/곽문규.png" alt="곽문규" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">곽문규 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -234,8 +281,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:mkkwak@knu.ac.kr">mkkwak@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="고체역학 및 재료" data-name="김성열 Kim Sung Yeol 재료역학 기능성 재료" data-home="https://sites.google.com/view/sykimlab">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="고체역학 및 재료" data-name="김성열 Kim Sung Yeol 재료역학 기능성 재료" data-home="https://sites.google.com/view/sykimlab">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/김성열.png" alt="김성열" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">김성열 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -244,8 +291,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:sykimknu@knu.ac.kr">sykimknu@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="고체역학 및 재료" data-name="최수민 Choi Soomin 최적설계 전산고체역학" data-home="https://knusoftrobotics.notion.site/KNU-Soft-Robotics-Lab-8adc7853feff4db99c51bcc9ab5bcce8">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="고체역학 및 재료" data-name="최수민 Choi Soomin 최적설계 전산고체역학" data-home="https://knusoftrobotics.notion.site/KNU-Soft-Robotics-Lab-8adc7853feff4db99c51bcc9ab5bcce8">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/최수민.png" alt="최수민" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">최수민 <span class="ml-1 text-xs text-neutral-500">조교수</span></h3>
@@ -254,8 +301,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:schoi@knu.ac.kr">schoi@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="고체역학 및 재료" data-name="위정욱 Wee Jung-Wook 재료 파괴역학" data-home="https://sites.google.com/view/knuamdm">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="고체역학 및 재료" data-name="위정욱 Wee Jung-Wook 재료 파괴역학" data-home="https://sites.google.com/view/knuamdm">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/위정욱.png" alt="위정욱" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">위정욱 <span class="ml-1 text-xs text-neutral-500">조교수</span></h3>
@@ -264,9 +311,9 @@
           <a class="block text-[11px] text-blue-600" href="mailto:jwwee@knu.ac.kr">jwwee@knu.ac.kr</a>
         </div>
       </article>
+
       <!-- 생산공학 -->
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" 
-         data-field="생산공학" data-name="양승한 Yang Seung Han CAD CAM" data-home="https://sites.google.com/view/immslab/home">
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="생산공학" data-name="양승한 Yang Seung Han CAD CAM" data-home="https://sites.google.com/view/immslab/home">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/양승한.png" alt="양승한" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">양승한 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -275,8 +322,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:syang@knu.ac.kr">syang@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="생산공학" data-name="김규만 Kim Gyu Man 나노 마이크로시스템" data-home="https://msne.knu.ac.kr/">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="생산공학" data-name="김규만 Kim Gyu Man 나노 마이크로시스템" data-home="https://msne.knu.ac.kr/">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/김규만.png" alt="김규만" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">김규만 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -285,8 +332,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:gyuman.kim@knu.ac.kr">gyuman.kim@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="생산공학" data-name="정영훈 Jeong Young Hun 생산공정" data-home="https://amplab.knu.ac.kr/">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="생산공학" data-name="정영훈 Jeong Young Hun 생산공정" data-home="https://amplab.knu.ac.kr/">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/정영훈.png" alt="정영훈" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">정영훈 <span class="ml-1 text-xs text-neutral-500">교수</span></h3>
@@ -295,8 +342,8 @@
           <a class="block text-[11px] text-blue-600" href="mailto:yhjeong@knu.ac.kr">yhjeong@knu.ac.kr</a>
         </div>
       </article>
-        <article class="card rounded-2xl bg-white border border-neutral-200 shadow-soft overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300"  
-        data-field="생산공학" data-name="정용록 Jeong Yongrok 나노 마이크로 공학" data-home="https://sites.google.com/view/eetl">
+
+      <article class="card overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5 focus:outline-none focus:ring-2 focus:ring-neutral-300" data-field="생산공학" data-name="정용록 Jeong Yongrok 나노 마이크로 공학" data-home="https://sites.google.com/view/eetl">
         <div class="aspect-[7/9] skeleton"><img src="https://raw.githubusercontent.com/knu-me/overview/main/images/prof/정용록.png" alt="정용록" class="w-full h-full object-cover" loading="lazy" onload="this.parentElement.classList.remove('skeleton')"/></div>
         <div class="p-3">
           <h3 class="font-semibold">정용록 <span class="ml-1 text-xs text-neutral-500">조교수</span></h3>
@@ -305,6 +352,7 @@
           <a class="block text-[11px] text-blue-600" href="mailto:yongrok@knu.ac.kr">yongrok@knu.ac.kr</a>
         </div>
       </article>
+
     </div>
     <div id="emptyState" class="hidden text-center text-neutral-500 py-16">조건에 맞는 교수가 없습니다.</div>
   </main>
@@ -316,7 +364,6 @@
     const search=document.getElementById('searchInput');
     const empty=document.getElementById('emptyState');
     const desc=document.getElementById('fieldDesc');
-    const countBadge=document.getElementById('countBadge');
     let activeField='all';
 
     function applyFilters(){
@@ -324,51 +371,37 @@
       let visible=0;
       cards.forEach(c=>{
         const f=c.getAttribute('data-field');
-        const n=c.getAttribute('data-name').toLowerCase();
+        const n=(c.getAttribute('data-name')||'').toLowerCase();
         const okField=(activeField==='all')||(f===activeField);
         const okText=!keyword||n.includes(keyword);
-        const show=okField&&okText; 
-        c.style.display=show?'':'none'; 
-        if(show) visible++;
+        const show=okField&&okText; c.style.display=show?'':''; if(show) visible++;
       });
       empty.classList.toggle('hidden',visible!==0);
-      countBadge.textContent=`(총 ${visible}인)`;
     }
 
     tabs.forEach(b=>b.addEventListener('click',()=>{
       tabs.forEach(x=>x.classList.remove('active','bg-neutral-900','text-white'));
       b.classList.add('active','bg-neutral-900','text-white');
       activeField=b.getAttribute('data-field');
-      const d=b.getAttribute('data-desc')||'';
-      desc.textContent=d;
+      desc.textContent=b.getAttribute('data-desc')||'';
       applyFilters();
     }));
 
-    search.addEventListener('input',applyFilters);
+    if(search) search.addEventListener('input',applyFilters);
 
-    // 카드 클릭 → 홈페이지 이동 (data-home 속성을 넣으면 새 탭에서 열림)
+    // 카드 클릭 → 홈페이지 이동 (data-home 속성 사용 시)
     cards.forEach(c=>{
       const url=c.getAttribute('data-home');
       if(url){
         c.classList.add('cursor-pointer');
-        c.addEventListener('click', (e)=>{
-          // 메일 링크 등을 눌렀을 때는 카드 클릭으로 처리하지 않음
+        c.tabIndex=0;
+        c.addEventListener('click',(e)=>{
           const tag=e.target.tagName.toLowerCase();
-          if(tag==='a' || tag==='button') return;
-          window.open(url, '_blank', 'noopener,noreferrer');
+          if(tag==='a'||tag==='button') return; window.open(url,'_blank','noopener,noreferrer');
         });
-        // 키보드 접근성
-        c.addEventListener('keydown', (e)=>{
-          if(e.key==='Enter' || e.key===' '){
-            e.preventDefault();
-            window.open(url, '_blank', 'noopener,noreferrer');
-          }
-        });
+        c.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); window.open(url,'_blank','noopener,noreferrer'); }});
       }
     });
   </script>
-
-
-  <!-- 주의: 이미지 파일명은 실서버 경로에 맞게 교체하세요. 홈페이지 URL이 있으면 카드 내부에 버튼을 추가할 수 있습니다. -->
 </body>
 </html>
