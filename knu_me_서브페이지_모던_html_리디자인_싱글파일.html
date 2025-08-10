@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>경북대학교 기계공학부 — 서브페이지 리디자인</title>
+  <meta name="description" content="경북대학교 기계공학부 서브페이지의 현대적 리디자인 예시입니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-elev: #0f141a;
+      --text: #e5e7eb;
+      --muted: #98a2b3;
+      --primary: #60a5fa; /* sky-400 */
+      --primary-strong: #3b82f6; /* blue-500 */
+      --card: #111827ee; /* slate-900 with alpha */
+      --border: #1f2937; /* slate-800 */
+      --ring: #93c5fd;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --danger: #f87171;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
+      --maxw: 1200px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc; /* slate-50 */
+        --bg-elev: #ffffff;
+        --text: #0f172a; /* slate-900 */
+        --muted: #475569; /* slate-600 */
+        --primary: #2563eb; /* blue-600 */
+        --primary-strong: #1d4ed8; /* blue-700 */
+        --card: #ffffff;
+        --border: #e2e8f0; /* slate-200 */
+        --ring: #93c5fd;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Noto Sans KR', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,0.15), transparent 50%),
+                  radial-gradient(800px 400px at 90% -20%, rgba(14,165,233,0.18), transparent 50%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(1.2) blur(12px);
+      background: color-mix(in oklab, var(--bg-elev) 78%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .logo {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: grid; place-items: center; font-weight: 800; letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: white; box-shadow: var(--shadow);
+    }
+    .brand .title { font-weight: 700; letter-spacing: -0.02em; }
+    nav ul { display: flex; gap: 18px; list-style: none; padding: 0; margin: 0; }
+    nav a { text-decoration: none; color: var(--muted); font-weight: 500; }
+    nav a:hover, nav a:focus { color: var(--text); }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; }
+    .hero .wrap { padding: 56px 0 32px; display: grid; gap: 24px; }
+    .eyebrow { color: var(--primary); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+    .headline { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; }
+    .sub { color: var(--muted); max-width: 68ch; }
+
+    .quick { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 8px; }
+    .card { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; }
+    .card h3 { margin: 0 0 6px; font-size: 16px; letter-spacing: -0.01em; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .card .cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; color: var(--primary); text-decoration: none; font-weight: 600; }
+    .card .cta:hover { color: var(--primary-strong); }
+
+    @media (min-width: 720px) {
+      .card { grid-column: span 4; }
+    }
+
+    /* Sections */
+    section { padding: 40px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    .section-head h2 { margin: 0; font-size: 22px; letter-spacing: -0.01em; }
+    .section-head a { text-decoration: none; color: var(--primary); font-weight: 600; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .span-12 { grid-column: span 12; }
+    .span-6 { grid-column: span 12; }
+    .span-4 { grid-column: span 12; }
+    @media (min-width: 960px){ .span-6 { grid-column: span 6; } .span-4 { grid-column: span 4; } }
+
+    .news-item, .person, .info { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+    .news-item time { display: block; color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+
+    .person { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: center; }
+    .avatar { width: 84px; height: 84px; border-radius: 14px; background: linear-gradient(135deg, #334155, #0ea5e9); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 22px; }
+    .tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+
+    .list { display: grid; gap: 10px; padding-left: 18px; }
+    .list li { margin: 0; }
+
+    /* Footer */
+    footer { margin-top: 40px; border-top: 1px solid var(--border); background: color-mix(in oklab, var(--bg-elev) 78%, transparent); }
+    .footer-wrap { padding: 20px 0; display: grid; gap: 8px; color: var(--muted); font-size: 14px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600;
+      color: white; background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      padding: 10px 14px; border-radius: 999px; border: 1px solid color-mix(in oklab, var(--primary) 60%, black);
+      box-shadow: var(--shadow);
+    }
+    .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+    .btn.ghost { background: transparent; color: var(--primary); border-color: var(--border); }
+
+    /* Utilities */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    /* Faculty 5-column responsive grid */
+    #faculty .areas {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    @media (min-width: 720px) {
+      #faculty .areas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 960px) {
+      #faculty .areas {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1200px) {
+      #faculty .areas {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+/* 분야 설명과 업계 사이 구분선 */
+.info .divider {
+  height: 1px;
+  background-color: var(--border); /* 기존 카드 테두리 색상과 동일 */
+  margin: 8px 0 10px;
+}
+</style>
+</head>
+<body>
+  <a href="#main" class="sr-only">본문으로 건너뛰기</a>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="경북대학교 기계공학부 홈">
+        <div class="logo" aria-hidden="true">ME</div>
+        <div class="title">경북대학교 기계공학부</div>
+      </a>
+      <nav aria-label="주요 메뉴">
+        <ul>
+          <li><a href="#about">학부 소개</a></li>
+          <li><a href="#news">공지사항</a></li>
+          <li><a href="#faculty">교수진</a></li>
+          <li><a href="#research">연구</a></li>
+          <li><a href="#contact">문의</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main id="main">
+    <section class="hero">
+      <div class="container wrap">
+        <span class="eyebrow">Department of Mechanical Engineering</span>
+        <h1 class="headline">더 빠르고, 더 보기 좋게. <br>기계공학부 서브페이지 모던 리디자인</h1>
+        <p class="sub">복잡한 테이블과 오래된 마크업 대신, 접근성·가독성·모바일 대응을 갖춘 단일 HTML 파일 예시입니다. 학부/연구실 정보, 공지, 교수진을 카드형으로 구성하고 색상·레이아웃은 학교 아이덴티티에 맞춰 쉽게 조정할 수 있습니다.</p>
+        <div class="quick">
+          <article class="card" aria-labelledby="quick1">
+            <h3 id="quick1">경북대학교 기계공학부 한눈에 보기</h3>
+            <p>경북대학교 기계공학부 한눈에 보기.</p>
+            <a class="cta" href="#">바로가기 →</a>
+          </article>
+          <article class="card" aria-labelledby="quick2">
+            <h3 id="quick2">입학/모집</h3>
+            <p>학부·대학원 모집요강, 장학제도, 국제교류 안내.</p>
+            <a class="cta" href="#">바로가기 →</a>
+          </article>
+          <article class="card" aria-labelledby="quick3">
+            <h3 id="quick3">IMAC Lab</h3>
+            <p>지능형 메카트로닉스 및 제어 연구실 소식과 연구성과.</p>
+            <a class="cta" href="#">바로가기 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  <main id="main">
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>학부 소개</h2>
+          <a href="https://knu-me.github.io/overview/comp/comp-main">더보기</a>
+        </div>
+        <div class="grid">
+          <div class="info span-6">
+            <h3>학부 비전</h3>
+            <p>국내 최고 수준의 교육환경과 연구역량을 바탕으로, <br>
+               로봇, 자동차, 에너지, 항공/방산, 반도체, 조선/해양 등 <br>
+               대한민국 주력 산업의 핵심 인재를 지속적으로 양성.</p>
+          </div>
+          <div class="info span-6">
+            <h3>교육 목표</h3>
+            <ul class="list">
+              <li>기초에 강한 엔지니어 양성 (수학·물리·프로그래밍·설계)</li>
+              <li>미래 모빌리티·지능형 시스템 중심의 융합 교육</li>
+              <li>산학협력 기반 문제해결형 캡스톤 강화</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <div class="container">
+        <div class="section-head">
+          <h2>공지사항</h2>
+          <a href="#">전체 공지 보기</a>
+        </div>
+        <div class="grid">
+          <article class="news-item span-4">
+            <time datetime="2025-08-01">2025-08-01</time>
+            <h3>2학기 수강신청 안내</h3>
+            <p>전필/전선 우선순위, 분반 증원 일정 및 유의사항을 확인하세요.</p>
+          </article>
+          <article class="news-item span-4">
+            <time datetime="2025-07-22">2025-07-22</time>
+            <h3>졸업 작품 전시회</h3>
+            <p>캡스톤디자인 결과물 전시 및 우수작 시상(포스터/데모).</p>
+          </article>
+          <article class="news-item span-4">
+            <time datetime="2025-07-10">2025-07-10</time>
+            <h3>학부생 연구 인턴 모집</h3>
+            <p>IMAC Lab 포함 연구실에서 하계 인턴십 운영(지원 방법 안내).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faculty">
+      <div class="container">
+        <section id="faculty">
+  <div class="container">
+    <div class="section-head">
+      <h2>교수진 연구분야</h2>
+       <a href="https://knu-me.github.io/overview/prof/prof-main">전체 교수진 보기</a>
+        </div>
+        <div class="areas">
+          <div class="info">
+            <h3>로봇 및 동역학</h3>
+            <p>지능형 로봇, 미래 모빌리티(자율차, UAM 등)<br>
+             <div class="divider"></div>
+            <strong>관련 업계:</strong> 현대자동차, 현대모비스, 삼성전자, LG전자, 두산로보틱스, Boston Dynamics</p>
+          </div>
+
+          <div class="info">
+            <h3>열역학 및 에너지</h3>
+            <p> 원자력 발전, 연소, 에너지 변환, 친환경 에너지<br>
+            <div class="divider"></div>
+             <strong>관련 업계:</strong> 한국전력공사, 한국수력원자력, 두산에너빌리티, GS에너지, 한화솔루션, Siemens Energy</p>
+          </div>
+
+          <div class="info">
+            <h3>유체역학 및 항공</h3>
+            <p>공기역학, 유동 해석, 항공우주 추진 기술<br>
+             <div class="divider"></div>
+             <strong>관련 업계:</strong> 대한항공, 한국항공우주산업(KAI), 한화에어로스페이스, 현대중공업, Rolls-Royce, Boeing</p>
+          </div>
+
+          <div class="info">
+            <h3>고체역학 및 재료</h3>
+            <p>재료 역학, 구조 해석, 첨단 소재 및 내구성 평가<br>
+            <div class="divider"></div>
+            <strong>관련 업계:</strong> 포스코, 현대제철, 세아베스틸, 한국항공우주산업(KAI), 현대자동차</p>
+          </div>
+
+          <div class="info">
+            <h3>생산공학</h3>
+            <p>정밀 가공, 스마트 제조, 자동화 및 품질 관리<br>
+            <div class="divider"></div>
+            <strong>관련 업계:</strong> 현대자동차, SK하이닉스, 삼성전자, LG전자, 현대중공업</p>
+          </div>
+        </div>
+      </div>
+</section>
+
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <h2>최신 주요 연구 소식</h2>
+          <a href="#">프로젝트 더보기</a>
+        </div>
+        <div class="grid">
+          <div class="info span-4">
+            <h3>Null Space Excitation 기반 결함진단</h3>
+            <p>Over-actuated UAV에서의 NSE-FDTC 프레임워크 및 DMDc 기반 동특성 추정.</p>
+          </div>
+          <div class="info span-4">
+            <h3>Twin-in-the-Loop MPC</h3>
+            <p>디지털 트윈과 강화학습을 접목한 Sim2Real 강건 제어.</p>
+          </div>
+          <div class="info span-4">
+            <h3>Fan Array Wind Tunnel</h3>
+            <p>분산 제어 기반 Fan Array 풍동과 실시간 적대적 학습 환경 구축.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>문의</h2>
+          <a href="https://home.knu.ac.kr/HOME/me/sub.htm?nav_code=me1623636460">교직원 더보기</a>
+        </div>
+          <div class="info span-6">
+            <h3>행정실</h3>
+            <p>주소 : 41566 대구광역시 북구 대학로80(산격동) 경북대학교 공대3호관 311호<br>
+               전화: 053-950-7518, 7517, 5668 <br> 
+               이메일: wgjun@knu.ac.kr, muschoi@knu.ac.kr, smsong@knu.ac.kr</p>
+          </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>© <span id="y"></span> Kyungpook National University · Department of Mechanical Engineering</div>
+      <div>개인정보처리방침 · 이용약관</div>
+    </div>
+  </footer>
+
+  <script>
+    // 년도 자동 반영
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
