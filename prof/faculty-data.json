@@ -1,0 +1,612 @@
+{
+  "roh_yong_rae": {
+    "field": "로봇 및 동역학",
+    "name": "노용래",
+    "title": "교수",
+    "home": "https://home.knu.ac.kr/HOME/avl/index.htm",
+    "email": "yryong@knu.ac.kr",
+    "office": "공대6호관 421호",
+    "phone": "053-950-6828",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/노용래.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "음향·진동",
+      "구조-음향 상호작용",
+      "소음제어"
+    ],
+    "대표프로젝트": [
+      "~~",
+      "~~"
+    ]
+  },
+    "kang_nam_chul": {
+    "field": "로봇 및 동역학",
+    "name": "강남철",
+    "title": "교수",
+    "email": "nckang@knu.ac.kr",
+    "office": "공대6호관 515호",
+    "phone": "053-950-7545",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/강남철.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "동역학 및 진동"
+    ],
+    "대표프로젝트": [
+      "~~",
+      "~~"
+    ]
+  },
+  "yi_hak": {
+    "field": "로봇 및 동역학",
+    "name": "이학",
+    "title": "부교수",
+    "home": "https://yihak0442.wixsite.com/robot",
+    "email": "yihaK@knu.ac.kr",
+    "office": "공대6호관 225호",
+    "phone": "053-950-7541",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/이학.png",
+      "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "필드로봇",
+    ],
+    "대표프로젝트": [
+      "~~",
+      "~~"
+    ]
+  },
+  "oh_keonyoung": {
+    "field": "로봇 및 동역학",
+    "name": "오건영",
+    "title": "조교수",
+    "home": "https://sites.google.com/view/biorobot",
+    "email": "kyoh@knu.ac.kr",
+    "office": "공대3호관 305호",
+    "phone": "053-950-5576",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/오건영.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "제어",
+      "생체/재활 로보틱스"
+    ],
+    "대표프로젝트": [
+      "웨어러블 재활 보조 로봇",
+      "근전도 기반 제어 시스템"
+    ]
+  },
+  "kim_jinwook": {
+    "field": "로봇 및 동역학",
+    "name": "김진욱",
+    "title": "조교수",
+    "home": "https://sites.google.com/view/vibroacoustics-meta-lab/home",
+    "email": "jinwookkim@knu.ac.kr",
+    "office": "공대6호관 201호",
+    "phone": "053-950-5572",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/김진욱.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "진동·음향",
+      "메타구조"
+    ],
+    "대표프로젝트": [
+      "메타구조 기반 소음저감",
+      "진동 제어 설계"
+    ]
+  },
+  "lee_sangheon": {
+    "field": "로봇 및 동역학",
+    "name": "이상헌",
+    "title": "조교수",
+    "home": "https://imac.super.site",
+    "email": "ssle8653@knu.ac.kr",
+    "office": "공대6호관 415호",
+    "phone": "053-950-5580",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/이상헌.png",
+    "학력": {
+      "학사": "기계신소재공학부, 울산과학기술원",
+      "석사": "석박통합",
+      "박사": "기계공학과, 울산과학기술원"
+    },
+    "경력": [
+      "박사후연구원, 울산과학기술원"
+    ],
+    "연구분야": [
+      "메카트로닉스",
+      "제어",
+      "미래모빌리티"
+    ],
+    "대표프로젝트": [
+      "다자유도 전동기 기반 전기식 벡터추진 기술 개발 (연구재단)"
+    ]
+  },
+  "hong_junggoo": {
+    "field": "열역학 및 에너지",
+    "name": "홍정구",
+    "title": "교수",
+    "home": "https://jghong70.wixsite.com/knucel",
+    "email": "jghong70@knu.ac.kr",
+    "office": "공대6호관 203호",
+    "phone": "053-950-6570",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/홍정구.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "연소공학",
+      "에너지 시스템"
+    ],
+    "대표프로젝트": [
+      "고효율 연소시스템",
+      "탄소저감형 에너지 변환"
+    ]
+  },
+  "park_cheolwoo": {
+    "field": "열역학 및 에너지",
+    "name": "박철우",
+    "title": "교수",
+    "home": "https://sites.google.com/site/knubefelab",
+    "email": "chwoopark@knu.ac.kr",
+    "office": "공대6호관 317호",
+    "phone": "053-950-7569",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/박철우.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "바이오유체",
+      "실험열유체"
+    ],
+    "대표프로젝트": [
+      "미세유체 실험 플랫폼",
+      "생체유동 계측"
+    ]
+  },
+  "park_ilseok": {
+    "field": "열역학 및 에너지",
+    "name": "박일석",
+    "title": "교수",
+    "home": "https://sites.google.com/view/ahtlknu/home",
+    "email": "einstein@knu.ac.kr",
+    "office": "공대3호관 321호",
+    "phone": "053-950-6573",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/박일석.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "대표프로젝트": [
+      "마이크로 채널 열관리",
+      "히트싱크 최적화"
+    ]
+  },
+  "jo_daeseong": {
+    "field": "열역학 및 에너지",
+    "name": "조대성",
+    "title": "부교수",
+    "home": "https://daeseongjo.wixsite.com/mtfl",
+    "email": "djo@knu.ac.kr",
+    "office": "공대6호관 423호",
+    "phone": "053-950-5574",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/조대성.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "다상열유체",
+      "열유동"
+    ],
+    "대표프로젝트": [
+      "기포 유동 해석",
+      "열유동 실험 시스템"
+    ]
+  },
+  "nam_hyungseok": {
+    "field": "열역학 및 에너지",
+    "name": "남형석",
+    "title": "조교수",
+    "home": "https://sites.google.com/view/ceelnam/home",
+    "email": "namhs219@knu.ac.kr",
+    "office": "공대3호관 201호",
+    "phone": "053-950-6829",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/남형석.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "에너지공학",
+      "CCUS"
+    ],
+    "대표프로젝트": [
+      "CO₂ 포집·전환",
+      "전기화학 촉매"
+    ]
+  },
+  "sohn_changhyun": {
+    "field": "유체역학 및 항공",
+    "name": "손창현",
+    "title": "교수",
+    "home": "",
+    "email": "chsohn@knu.ac.kr",
+    "office": "공대3호관 303호",
+    "phone": "053-950-5570",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/손창현.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "전산유체역학(CFD)"
+    ],
+    "대표프로젝트": [
+      "고성능 CFD 해석",
+      "유동 해석 플랫폼"
+    ]
+  },
+  "park_taeseon": {
+    "field": "유체역학 및 항공",
+    "name": "박태선",
+    "title": "교수",
+    "home": "https://home.knu.ac.kr/HOME/turb/",
+    "email": "tsparkjp@knu.ac.kr",
+    "office": "공대6호관 411호",
+    "phone": "053-950-5571",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/박태선.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "열유동",
+      "난류",
+      "연소열전달"
+    ],
+    "대표프로젝트": [
+      "난류 연소 모델링",
+      "열전달 예측"
+    ]
+  },
+  "choi_sanghun": {
+    "field": "유체역학 및 항공",
+    "name": "최상헌",
+    "title": "부교수",
+    "home": "https://mlfm.knu.ac.kr/",
+    "email": "s-choi@knu.ac.kr",
+    "office": "공대6호관 417호",
+    "phone": "053-950-5578",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/최상헌.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "ML 기반 유체역학"
+    ],
+    "대표프로젝트": [
+      "물리정보 신경망 유동예측",
+      "ML-유체 해석 가속"
+    ]
+  },
+  "lee_jungpyo": {
+    "field": "유체역학 및 항공",
+    "name": "이정표",
+    "title": "부교수",
+    "home": "",
+    "email": "jungpyo@knu.ac.kr",
+    "office": "공대6호관 319호",
+    "phone": "053-950-5575",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/이정표.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "추진",
+      "연소공학"
+    ],
+    "대표프로젝트": [
+      "추진기 연소 해석",
+      "고효율 추진 시스템"
+    ]
+  },
+  "kwak_moonkyu": {
+    "field": "고체역학 및 재료",
+    "name": "곽문규",
+    "title": "교수",
+    "home": "https://sites.google.com/view/kwakslab/",
+    "email": "mkkwak@knu.ac.kr",
+    "office": "공대6호관 223호",
+    "phone": "053-950-5573",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/곽문규.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "구조시스템",
+      "멀티스케일 해석"
+    ],
+    "대표프로젝트": [
+      "다중스케일 구조 모델링",
+      "구조 최적화"
+    ]
+  },
+  "kim_sungyeol": {
+    "field": "고체역학 및 재료",
+    "name": "김성열",
+    "title": "교수",
+    "home": "https://sites.google.com/view/sykimlab",
+    "email": "sykimknu@knu.ac.kr",
+    "office": "공대3호관 201-1",
+    "phone": "053-950-7595",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/김성열.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "재료역학",
+      "기능성 재료"
+    ],
+    "대표프로젝트": [
+      "기능성 재료 설계",
+      "재료 내구성 평가"
+    ]
+  },
+  "choi_soomin": {
+    "field": "고체역학 및 재료",
+    "name": "최수민",
+    "title": "조교수",
+    "home": "https://knusoftrobotics.notion.site/KNU-Soft-Robotics-Lab-8adc7853feff4db99c51bcc9ab5bcce8",
+    "email": "schoi@knu.ac.kr",
+    "office": "공대6호관 523호",
+    "phone": "053-950-7817",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/최수민.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "최적설계",
+      "전산고체역학"
+    ],
+    "대표프로젝트": [
+      "형상 최적화 도구",
+      "유연 구조 시뮬레이션"
+    ]
+  },
+  "wee_jungwook": {
+    "field": "고체역학 및 재료",
+    "name": "위정욱",
+    "title": "조교수",
+    "home": "https://sites.google.com/view/knuamdm",
+    "email": "jwwee@knu.ac.kr",
+    "office": "공대3호관 209호",
+    "phone": "053-950-5579",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/위정욱.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "재료역학",
+      "파괴역학"
+    ],
+    "대표프로젝트": [
+      "파괴 모델 검증",
+      "재료 신뢰성 평가"
+    ]
+  },
+  "yang_seunghan": {
+    "field": "생산공학",
+    "name": "양승한",
+    "title": "교수",
+    "home": "https://sites.google.com/view/immslab/home",
+    "email": "syang@knu.ac.kr",
+    "office": "공대3호관 207호",
+    "phone": "053-950-6569",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/양승한.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "CAD/CAM",
+      "생산공정"
+    ],
+    "대표프로젝트": [
+      "가공 경로 최적화",
+      "디지털 제조"
+    ]
+  },
+  "kim_gyuman": {
+    "field": "생산공학",
+    "name": "김규만",
+    "title": "교수",
+    "home": "https://msne.knu.ac.kr/",
+    "email": "gyuman.kim@knu.ac.kr",
+    "office": "공대3호관 307호",
+    "phone": "053-950-7570",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/김규만.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "나노/마이크로 시스템"
+    ],
+    "대표프로젝트": [
+      "마이크로 제조 공정",
+      "나노 구조 제작"
+    ]
+  },
+  "jeong_younghun": {
+    "field": "생산공학",
+    "name": "정영훈",
+    "title": "교수",
+    "home": "https://amplab.knu.ac.kr/",
+    "email": "yhjeong@knu.ac.kr",
+    "office": "공대6호관 419호",
+    "phone": "053-950-5577",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/정영훈.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "생산공정"
+    ],
+    "대표프로젝트": [
+      "공정 자동화",
+      "공정 품질 분석"
+    ]
+  },
+  "jeong_yongrok": {
+    "field": "생산공학",
+    "name": "정용록",
+    "title": "조교수",
+    "home": "https://sites.google.com/view/eetl",
+    "email": "yongrok@knu.ac.kr",
+    "office": "공대6호관 227호",
+    "phone": "053-950-6574",
+    "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/정용록.png",
+    "학력": {
+      "학사": "기계공학부, 대학교",
+      "석사": "기계공학부, 대학교",
+      "박사": "기계공학부, 대학교"
+    },
+    "경력": [
+      "경북대학교 기계공학부 교수",
+      "○○연구소 선임연구원"
+    ],
+    "연구분야": [
+      "나노/마이크로 공학"
+    ],
+    "대표프로젝트": [
+      "미세 구조 제작",
+      "미세유체 제어"
+    ]
+  }
+}

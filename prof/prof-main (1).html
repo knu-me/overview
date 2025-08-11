@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>경북대 기계공학부 교수진 (prof-main)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#f8fafc; --bg-elev:#ffffff; --text:#0f172a; --muted:#475569;
+      --primary:#2563eb; --border:#e2e8f0; --ring:#93c5fd;
+      --radius:16px; --shadow:0 6px 18px rgba(15,23,42,.06); --header-h:72px; --maxw:1200px;
+      --gutter: clamp(16px, 5vw, 28px);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.12), transparent 50%),
+        radial-gradient(800px 400px at 90% -20%, rgba(14,165,233,.14), transparent 50%),
+        var(--bg);
+      color:var(--text);
+      font-family:'Inter','Noto Sans KR',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+      line-height:1.6;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
+    header{
+      position:sticky; top:0; z-index:40; background: color-mix(in oklab, var(--bg-elev) 92%, transparent);
+      backdrop-filter: saturate(1.2) blur(10px); -webkit-backdrop-filter:saturate(1.2) blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit}
+    .logo{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; color:#fff; font-weight:800;
+      background:linear-gradient(135deg,var(--primary),#0f172a); box-shadow:var(--shadow)}
+    .brand .title{font-weight:800}
+    .toolbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .tabs{display:flex; flex-wrap:wrap; gap:8px}
+    .tab{border:1px solid var(--border); background:#fff; color:#111; padding:8px 12px; font-size:13px; border-radius:12px; cursor:pointer; transition:.2s}
+    .tab.active{background:var(--primary); color:#fff; border-color:transparent; box-shadow:var(--shadow); transform:translateY(-1px)}
+    .tab:not(.active):hover{background:#eef2ff; border-color:#c7d2fe}
+    .searchbox{position:relative}
+    .searchbox input{
+      width:min(72vw, 340px); border:1px solid var(--border); border-radius:12px; background:#fff; padding:8px 12px; font-size:13px;
+      box-shadow:0 2px 12px rgba(0,0,0,.06);
+    }
+    .searchbox input:focus{outline:none; box-shadow:0 0 0 3px color-mix(in oklab, var(--ring) 60%, transparent)}
+    main{padding:20px 0 40px}
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(2, minmax(0,1fr))}
+    @media(min-width:860px){ .grid{grid-template-columns:repeat(4, minmax(0,1fr))} }
+    @media(min-width:1180px){ .grid{grid-template-columns:repeat(5, minmax(0,1fr))} }
+    .card{
+      position:relative; background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); overflow:hidden; transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{ transform: translateY(-2px); box-shadow:0 12px 28px rgba(15,23,42,.10) }
+    .thumb{aspect-ratio:7/9; background:#f1f5f9; display:grid; place-items:center}
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
+    .body{padding:12px}
+    .name{margin:0; font-weight:700}
+    .meta{margin:4px 0 0; font-size:12px; color:var(--muted)}
+    .contact{margin-top:6px; font-size:11px}
+    .contact a{color:#2563eb; text-decoration:none}
+    .empty{display:none; text-align:center; color:#64748b; padding:40px 0}
+
+    /* Popover - large & directional */
+    .profile-pop{
+      position:absolute;
+      bottom:100%;
+      width:360px; /* bigger than card */
+      max-width:92vw;
+      background:var(--bg-elev); border:1px solid var(--border);
+      border-radius:12px; box-shadow:var(--shadow);
+      padding:16px; font-size:14px; color:var(--text);
+      opacity:0; transition: opacity .18s ease, transform .18s ease;
+      pointer-events:none; z-index:999;
+    }
+    .card:hover .profile-pop, .card:focus-within .profile-pop{ opacity:1 }
+    .profile-pop.right{ left:100%; margin-left:12px; transform:translateY(-6px) }
+    .profile-pop.left { right:100%; margin-right:12px; transform:translateY(-6px) }
+    .profile-pop h4{ margin:0 0 8px; font-size:13px; font-weight:800 }
+    .profile-pop dl{ margin:0; display:grid; grid-template-columns:62px 1fr; gap:8px 12px }
+    .profile-pop dt{ color:var(--muted) }
+    .profile-pop dd{ margin:0 }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="경북대학교 기계공학부 홈">
+        <div class="logo">ME</div>
+        <div class="title">교수진</div>
+      </a>
+      <div class="toolbar">
+        <div id="tabs" class="tabs" role="tablist" aria-label="연구분야 필터"></div>
+        <div class="searchbox">
+          <input id="q" type="search" placeholder="이름/연구분야 검색" aria-label="검색" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p id="fieldDesc" class="meta" style="margin:8px 0 14px">카드를 누르면 연구실 홈페이지로 이동합니다.</p>
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <div id="empty" class="empty">조건에 맞는 교수가 없습니다.</div>
+  </main>
+
+  <!-- Inline JSON fallback -->
+  <script id="faculty-data" type="application/json">
+  {
+    "roh_yong_rae": {
+      "field": "로봇 및 동역학",
+      "name": "노용래",
+      "title": "교수",
+      "home": "https://home.knu.ac.kr/HOME/avl/index.htm",
+      "email": "yryong@knu.ac.kr",
+      "office": "공대6호관 421호",
+      "phone": "053-950-6828",
+      "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/노용래.png",
+      "학력": { "학사":"기계공학, 경북대학교", "석사":"기계공학, KAIST", "박사":"기계공학, KAIST" },
+      "경력": [ "경북대학교 기계공학부 교수", "○○연구소 선임연구원" ],
+      "연구분야": [ "음향·진동", "구조-음향 상호작용", "소음제어" ],
+      "대표프로젝트": [ "스마트 음향 제어 시스템 개발", "진동 저감형 구조 설계" ]
+    },
+    "yi_hak": {
+      "field": "로봇 및 동역학",
+      "name": "이학",
+      "title": "부교수",
+      "home": "https://yihak0442.wixsite.com/robot",
+      "email": "yihaK@knu.ac.kr",
+      "office": "공대6호관 225호",
+      "phone": "053-950-7541",
+      "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/이학.png",
+      "학력": { "학사":"로봇공학, ○○대", "석사":"기계공학, ○○대", "박사":"로봇공학, ○○대" },
+      "경력": [ "해외 공동연구 및 산학 프로젝트" ],
+      "연구분야": [ "필드로봇", "해양 로봇", "자율시스템" ],
+      "대표프로젝트": [ "해양 구조물 점검 자율로봇", "원격 환경 인지 로봇" ]
+    },
+    "oh_keonyoung": {
+      "field": "로봇 및 동역학",
+      "name": "오건영",
+      "title": "조교수",
+      "home": "https://sites.google.com/view/biorobot",
+      "email": "kyoh@knu.ac.kr",
+      "office": "공대3호관 305호",
+      "phone": "053-950-5576",
+      "image": "https://raw.githubusercontent.com/knu-me/overview/main/images/prof/오건영.png",
+      "학력": { "학사":"기계공학, ○○대","석사":"바이오공학, ○○대","박사":"기계/바이오공학, ○○대" },
+      "경력": [ "의공학·재활공학 연구 경력" ],
+      "연구분야": [ "제어","생체/재활 로보틱스" ],
+      "대표프로젝트": [ "웨어러블 재활 보조 로봇","근전도 기반 제어 시스템" ]
+    }
+  }
+  </script>
+
+  <script>
+    async function loadFacultyData() {
+      try {
+        const res = await fetch('faculty-data.json', {cache:'no-cache'});
+        if (res.ok) return await res.json();
+      } catch(e){}
+      const inline = document.getElementById('faculty-data');
+      return inline ? JSON.parse(inline.textContent) : {};
+    }
+    const $ = (s, r=document)=>r.querySelector(s);
+    const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
+    const esc = s => String(s??'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+    function buildPopoverHTML(p){
+      const hasEdu = p.학력 && (p.학력.학사||p.학력.석사||p.학력.박사);
+      const hasExp = Array.isArray(p.경력) && p.경력.length;
+      const hasRes = Array.isArray(p.연구분야) && p.연구분야.length;
+      const hasProj= Array.isArray(p.대표프로젝트) && p.대표프로젝트.length;
+      if(!(hasEdu||hasExp||hasRes||hasProj)) return '';
+      const edu = [
+        p.학력?.학사 ? `학사: ${esc(p.학력.학사)}`:'' ,
+        p.학력?.석사 ? `석사: ${esc(p.학력.석사)}`:'' ,
+        p.학력?.박사 ? `박사: ${esc(p.학력.박사)}`:''
+      ].filter(Boolean).join('<br>');
+      return `<h4>프로필 요약</h4>
+        <dl>
+          ${hasEdu?`<dt>학력</dt><dd>${edu}</dd>`:''}
+          ${hasExp?`<dt>경력</dt><dd>${p.경력.map(esc).join('<br>')}</dd>`:''}
+          ${hasRes?`<dt>연구분야</dt><dd>${p.연구분야.map(esc).join(', ')}</dd>`:''}
+          ${hasProj?`<dt>대표프로젝트</dt><dd>${p.대표프로젝트.map(esc).join('<br>')}</dd>`:''}
+        </dl>`;
+    }
+
+    function cardHTML(id, p){
+      const home = p.home || '';
+      return `<article class="card" data-id="${esc(id)}" ${home?`data-home="${esc(home)}"`:''} tabindex="0">
+        <div class="thumb">${p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)} 사진" loading="lazy" decoding="async">`:''}</div>
+        <div class="body">
+          <h3 class="name">${esc(p.name)} <span class="meta">· ${esc(p.title||'')}</span></h3>
+          <p class="meta">${esc(p.field||'')}</p>
+          <p class="contact">${p.office?`${esc(p.office)} · `:''}${esc(p.phone||'')}</p>
+          ${p.email?`<p class="contact"><a href="mailto:${esc(p.email)}">${esc(p.email)}</a></p>`:''}
+        </div>
+        <div class="profile-pop"><!-- 방향 클래스는 렌더 후 부여 -->
+          ${buildPopoverHTML(p)}
+        </div>
+      </article>`;
+    }
+
+    (async function init(){
+      const data = await loadFacultyData();
+      const list = Object.entries(data);
+      const fields = Array.from(new Set(list.map(([_,p])=>p.field).filter(Boolean))).sort();
+
+      // Tabs
+      const tabs = $('#tabs'); tabs.innerHTML='';
+      const all = document.createElement('button'); all.className='tab active'; all.dataset.field='all'; all.type='button'; all.textContent='전체'; tabs.appendChild(all);
+      fields.forEach(f=>{ const b=document.createElement('button'); b.className='tab'; b.dataset.field=f; b.type='button'; b.textContent=f; tabs.appendChild(b); });
+
+      const grid=$('#grid'), q=$('#q'), empty=$('#empty'), fieldDesc=$('#fieldDesc');
+      let active='all', keyword='';
+
+      function applyFilters(){
+        const norm = s => (s||'').toLowerCase();
+        const filtered = list.filter(([_,p])=> (active==='all'||p.field===active) && (!keyword || `${p.name||''} ${p.field||''} ${(p.연구분야||[]).join(' ')}`.toLowerCase().includes(keyword)));
+        grid.innerHTML = filtered.map(([id,p])=>cardHTML(id,p)).join('');
+        empty.style.display = filtered.length ? 'none' : 'block';
+
+        // attach click
+        $$('.card', grid).forEach(c=>{
+          const url = c.getAttribute('data-home');
+          if(!url) return;
+          c.addEventListener('click', e=>{ const t=e.target.tagName.toLowerCase(); if(t==='a'||t==='button') return; window.open(url,'_blank','noopener,noreferrer'); });
+          c.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); window.open(url,'_blank','noopener,noreferrer'); } });
+        });
+
+        // after render -> decide popover side per column
+        decidePopoverSides();
+      }
+
+      function decidePopoverSides(){
+        const gridEl = $('#grid');
+        const cols = getComputedStyle(gridEl).gridTemplateColumns.split(' ').length || 1;
+        const cards = $$('.card', gridEl);
+        cards.forEach((card, i)=>{
+          const pop = $('.profile-pop', card);
+          if(!pop) return;
+          pop.classList.remove('left','right');
+          const colIndex = i % cols;
+          if(colIndex === 0){ pop.classList.add('right'); }            // leftmost -> open to right
+          else if(colIndex === cols-1){ pop.classList.add('left'); }   // rightmost -> open to left
+          else { pop.classList.add('right'); }                          // middle -> default right
+        });
+      }
+
+      tabs.addEventListener('click', e=>{
+        const btn = e.target.closest('.tab'); if(!btn) return;
+        $$('.tab', tabs).forEach(x=>x.classList.remove('active')); btn.classList.add('active');
+        active = btn.dataset.field || 'all';
+        fieldDesc.textContent = active==='all' ? '카드를 누르면 연구실 홈페이지로 이동합니다.' : `${active} 분야 교수 리스트입니다.`;
+        applyFilters();
+      });
+      let t; q.addEventListener('input', ()=>{ clearTimeout(t); t=setTimeout(()=>{ keyword=(q.value||'').trim().toLowerCase(); applyFilters(); }, 120); });
+
+      // initial render
+      applyFilters();
+      // re-evaluate on resize (columns change)
+      window.addEventListener('resize', ()=>{ decidePopoverSides(); });
+    })();
+  </script>
+</body>
+</html>
