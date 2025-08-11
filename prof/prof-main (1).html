@@ -161,7 +161,7 @@
   <script>
     async function loadFacultyData() {
       try {
-        const res = await fetch('faculty-data.json', {cache:'no-cache'});
+        const res = await fetch('https://raw.githubusercontent.com/knu-me/overview/prof/faculty-data.json', {cache:'no-cache'});
         if (res.ok) return await res.json();
       } catch(e){}
       const inline = document.getElementById('faculty-data');
