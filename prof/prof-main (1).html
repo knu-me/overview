@@ -105,6 +105,7 @@
   </header>
 
   <main class="wrap">
+    
     <p id="fieldDesc" class="meta" style="margin:8px 0 14px">카드를 누르면 연구실 홈페이지로 이동합니다.</p>
     <section id="grid" class="grid" aria-live="polite"></section>
     <div id="empty" class="empty">조건에 맞는 교수가 없습니다.</div>
@@ -160,13 +161,18 @@
 
   <script>
     async function loadFacultyData() {
-      try {
-        const res = await fetch('https://raw.githubusercontent.com/knu-me/overview/prof/faculty-data.json', {cache:'no-cache'});
-        if (res.ok) return await res.json();
-      } catch(e){}
-      const inline = document.getElementById('faculty-data');
-      return inline ? JSON.parse(inline.textContent) : {};
-    }
+        const REMOTE_JSON =
+        'https://knu-me.github.io/overview/prof/faculty-data.json';
+        try {
+          const res = await fetch(REMOTE_JSON, { cache: 'no-cache' });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          return await res.json();
+        } catch (e) {
+          console.warn('[faculty] remote fetch failed -> fallback to inline JSON', e);
+          const inline = document.getElementById('faculty-data');
+          return inline ? JSON.parse(inline.textContent) : {};
+        }
+      }
     const $ = (s, r=document)=>r.querySelector(s);
     const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
     const esc = s => String(s??'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
