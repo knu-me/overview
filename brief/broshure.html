@@ -50,13 +50,26 @@
   .kicker{ color:#cfe1ff; font-size:13px; letter-spacing:.04em; margin-bottom:10px; }
   .section{ border:1px solid #e5e7eb; border-radius:var(--radius); padding:18px; }
   .section h2{ margin:0 0 10px; font-size:18px; color:var(--ink); }
+  .section h3 {
+    margin: 0 0 2px;   /* 제목과 이미지 사이 여백 */
+    font-size: 16px;
+    color: black;
+    line-height: 1.4;  /* 행간 조금 넉넉하게 */
+    }
   .muted{ color:var(--muted); }
   .grid{ display:grid; gap:14px; }
-  .grid-2{ grid-template-columns:1fr 1fr; }
+    .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: stretch; /* 자식 높이 동일하게 */
+    
+    }
+
   .grid-3{ grid-template-columns:repeat(3,1fr); }
   .pill{ background:#f4f7ff; color:var(--ink-2); padding:8px 12px; border-radius:999px; display:inline-flex; gap:8px; align-items:center; }
   .stat{ display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px dashed #e5e7eb; border-radius:14px; }
-  .stat b{ color:var(--ink); font-size:18px; }
+  .stat b{ color:var(--ink); font-size:14px; }
 
   /* 히어로 */
   .hero{
@@ -75,15 +88,45 @@
   }
   .btn.secondary{ background:rgba(255,255,255,.15); color:#fff; border:1px solid rgba(255,255,255,.3); }
 
-  /* 이미지 플레이스홀더 */
-  .media{
-    width:100%; aspect-ratio: 16 / 11; border-radius:12px;
-    background:conic-gradient(from 90deg at 50% 50%, #eaf1ff, #f8fbff 30%, #edf3ff);
-    display:grid; place-items:center; border:1px solid #e5e7eb; overflow:hidden;
-  }
-  .media small{ color:#6b7ea6; }
-  .media img{ width:100%; height:100%; object-fit:contain; display:block; }
 
+.media {
+  height: 100%;         /* 부모가 늘려준 높이를 채움 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+.media h3 {
+  margin:0 0 2px;        /* 제목과 이미지 간격 최소 */
+  font-size:16px;
+  color:black;
+}
+.media img {
+  display:block;
+  max-width:90%;
+  height:auto;
+  object-fit:contain;
+}
+  .media small{ color:#6b7ea6; }
+
+.callout {
+  background: #e3eefa;            /* 밝은 배경 */
+  border-left: 4px solid var(--ink); /* 왼쪽 포인트 라인 */
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.4;
+}
+.callout span {
+  color: rgb(65, 65, 65);
+  font-weight: 400;
+}
   /* 로고 그리드 */
   .logos{
     display:grid; grid-template-columns:repeat(6,1fr); gap:10px;
@@ -135,26 +178,23 @@
   <!-- 데이터로 보는 취업 -->
   <section class="section">
     <h2>데이터로 보는 취업분야 · 취업현황</h2>
-    <div class="grid grid-2">
-      <div>
-        <div class="media" style="aspect-ratio: 1 / 1;">
-       <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/under_emp1.png" style="max-width:100%; height:auto; object-fit:contain;" />
-          <small>취업분야 차트 이미지</small>
-        </div>
-        <div class="grid" style="margin-top:10px;">
-          <div class="stat"><b>반도체/전자 34%</b> <span class="muted">자동차 31%, 에너지 14% …</span></div>
-        </div>
-      </div>
-      <div>
-        <div class="media" style="aspect-ratio: 1 / 1;">
-          <!-- 교체: <img src="status-pie.png" alt="취업현황 파이차트"> -->
-          <small>취업현황 차트 이미지</small>
-        </div>
-        <div class="grid" style="margin-top:10px;">
-          <div class="stat"><b>대기업 66%</b> <span class="muted">중견 11%, 중소 11%, 공공/공기업 9%…</span></div>
-        </div>
-      </div>
+    <div class="callout" style="margin-bottom: 10px;">
+         대기업 66% <span>중견 11%, 중소 11%, 공공/공기업 9%… |</span> 반도체· 전자 34% <span>자동차 31%, 에너지 14% …</span>
     </div>
+    <div class="grid grid-2">
+       <div class="media" style=" background:white">
+       <h3 style=" text-align: center; margin-bottom:4px">취업 유형</h3>
+       <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/under_emp1.png" style="max-width:90%; height:auto; object-fit:contain;" />
+      </div>
+            <div class="media" style="background:white">
+                <h3 style=" text-align: center; margin-bottom:4px">취업 분야</h3>
+            <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/under_emp2.png" style="margin-top:0px; max-width:90%; height:auto; object-fit:contain;" />
+            </div>
+    </div>
+
+   <div class="grid grid-2" style="margin-top: 20px;">
+    </div> 
+
   </section>
 
   <!-- 주요 취업처 -->
@@ -172,15 +212,15 @@
     <div class="grid grid-3">
       <div class="stat" style="border-style:solid;">
         <b>산업맞춤 커리큘럼</b>
-        <span class="muted">자동차·반도체·에너지 등 트랙별 실무 프로젝트</span>
+        <span class="muted" style="font-size:12px"> 전공별 특화 커리큘럼 (기계공학/설계학/로봇·자동화 전공)</span>
       </div>
       <div class="stat" style="border-style:solid;">
-        <b>연구·진학 연계</b>
-        <span class="muted">국책과제·대학원 진학 멘토링</span>
+        <b>연구·진학 <br>연계</b>
+        <span class="muted"style="font-size:12px">국책과제·대학원<br>  진학 멘토링</span>
       </div>
       <div class="stat" style="border-style:solid;">
-        <b>커리어 지원</b>
-        <span class="muted">현장실습·캡스톤·기업연계 채용설명회</span>
+        <b>커리어 <br>지원</b>
+        <span class="muted"style="font-size:12px">현장실습·캡스톤·기업연계<br> 채용설명회</span>
       </div>
     </div>
   </section>
@@ -191,11 +231,10 @@
   <section class="footer">
     <div>
       <div class="mark">경북대학교 기계공학부</div>
-      <div class="muted">입학·진로 상담: 053-xxx-xxxx · mech@knu.ac.kr · 대구광역시 북구 대학로 ○○</div>
+      <div class="muted">41566 대구광역시 북구 대학로80(산격동) 경북대학교 공대3호관 311호</div>
     </div>
     <div class="no-print">
-      <a class="btn" href="#" onclick="window.print()">A4로 인쇄</a>
-      <a class="btn secondary" href="#apply">입학 안내</a>
+      <a class="btn" href="https://ipsi2.knu.ac.kr/intro/" onclick="window.print()">입학 안내</a>
     </div>
   </section>
 </div>
