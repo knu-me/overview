@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>기계공학부 브로셔</title>
 <style>
+  /* 1) 패딩을 너비 안으로 포함 */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* 2) .page가 가로로 넘치지 않게 */
+.page { box-sizing: border-box; overflow-x: hidden; }
+
+/* 3) 혹시 모를 긴 단어/요소 줄바꿈 */
+.page, .section, .hero { overflow-wrap: anywhere; word-break: keep-all; }
+
   :root{
     --ink:#0d2b52;          /* 네이비 */
     --ink-2:#163a6e;
@@ -15,25 +24,35 @@
     --radius:18px;
   }
 
-  /* A4 인쇄 레이아웃 */
-  @page{ size:A4; margin:14mm; }
+  /* 화면 기본 */
   html,body{ height:100%; }
   body{
     margin:0; background:var(--bg); color:var(--text);
-    font-family: "Pretendard","Noto Sans KR","Apple SD Gothic Neo","맑은 고딕",sans-serif;
-    line-height:1.5;
+    font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","맑은 고딕",sans-serif;
+    line-height:1.55;
+    -webkit-text-size-adjust:100%;
   }
+
+  /* 화면 레이아웃: 모바일 우선, 넓은 화면에서만 확대 */
   .page{
-    width:210mm; min-height:297mm; margin:0 auto; background:#fff;
+    width:100%;
+    max-width:920px;                /* 화면에서는 고정 폭 대신 최대폭 */
+    min-height:100dvh;
+    margin:0 auto;
+    background:#fff;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
-    display:flex; flex-direction:column; gap:18px; padding:18mm;
+    display:flex; flex-direction:column; gap:clamp(12px,2vw,18px);
+    padding:clamp(16px,4vw,28px);
   }
-  @media (max-width: 840px){
-    .page{ width:100%; min-height:auto; box-shadow:none; padding:20px; }
-  }
+
+  /* 인쇄(A4) 전용 규칙 */
+  @page{ size:A4; margin:14mm; }
   @media print{
     body{ background:#fff; }
-    .page{ box-shadow:none; padding:0; }
+    .page{
+      width:210mm; min-height:297mm;
+      box-shadow:none; padding:0;
+    }
     .no-print{ display:none !important; }
     a{ color:inherit; text-decoration:none; }
   }
@@ -45,228 +64,165 @@
     font-size:12px;
   }
   .headline{
-    font-weight:800; color:#fff; font-size:26px; line-height:1.35; margin:0;
+    font-weight:800; color:#fff;
+    font-size:clamp(20px,4.6vw,28px);
+    line-height:1.35; margin:0;
   }
   .kicker{ color:#cfe1ff; font-size:13px; letter-spacing:.04em; margin-bottom:10px; }
-  .section{ border:1px solid #e5e7eb; border-radius:var(--radius); padding:18px; }
-  .section h2{ margin:0 0 10px; font-size:18px; color:var(--ink); }
-  .section h3 {
-    margin: 0 0 2px;   /* 제목과 이미지 사이 여백 */
-    font-size: 16px;
-    color: black;
-    line-height: 1.4;  /* 행간 조금 넉넉하게 */
-    }
-  .muted{ color:var(--muted); }
-  .grid{ display:grid; gap:14px; }
-    .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    align-items: stretch; /* 자식 높이 동일하게 */
-    
-    }
 
-  .grid-3{ grid-template-columns:repeat(3,1fr); }
+  .section{ border:1px solid #e5e7eb; border-radius:var(--radius); padding:clamp(14px,2.5vw,18px); }
+  .section h2{ margin:0 0 10px; font-size:clamp(16px,2.2vw,18px); color:var(--ink); }
+  .section h3{ margin:0 0 4px; font-size:clamp(14px,2vw,16px); color:#000; line-height:1.4; }
+  .muted{ color:var(--muted); }
+  .divider{ height:1px; background:#eef1f5; }
+
+  .grid{ display:grid; gap:14px; }
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; }
+  .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  @media (max-width: 980px){
+    .grid-2, .grid-3{ grid-template-columns:1fr; }
+  }
+
   .pill{ background:#f4f7ff; color:var(--ink-2); padding:8px 12px; border-radius:999px; display:inline-flex; gap:8px; align-items:center; }
   .stat{ display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px dashed #e5e7eb; border-radius:14px; }
   .stat b{ color:var(--ink); font-size:14px; }
 
-  /* 히어로 
+  /* 히어로 */
   .hero{
     background:linear-gradient(135deg, var(--ink) 0%, #0b2343 100%);
-    color:#fff; border-radius:var(--radius); padding:22px;
-    display:grid; gap:14px; align-items:center;
-    grid-template-columns:1.2fr .8fr;
+    color:#fff; border-radius:var(--radius); padding:clamp(16px,3vw,24px);
+    display:grid; gap:14px; align-items:center; grid-template-columns:1fr;
   }
-    */
-    .hero {
-  background: linear-gradient(135deg, var(--ink) 0%, #0b2343 100%);
-  color: #fff;
-  border-radius: var(--radius);
-  padding: 22px;
-  display: grid;
-  gap: 14px;
-  align-items: center;
-  grid-template-columns: 1fr; /* 변경: 한 열로 */
-}
-  .hero p{ margin:0; font-size:14px; color:#e7eefb; }
-  .hero .cta{
-    display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;
-  }
-  .btn{
-    border:0; padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer;
-    background:#fff; color:var(--ink);
-  }
+  .hero p{ margin:0; font-size:clamp(13px,2vw,14px); color:#e7eefb; }
+  .hero .cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+  .btn{ border:0; padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer; background:#fff; color:var(--ink); }
   .btn.secondary{ background:rgba(255,255,255,.15); color:#fff; border:1px solid rgba(255,255,255,.3); }
 
-
-.media {
-  height: 100%;         /* 부모가 늘려준 높이를 채움 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8px;
-  background: white;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-}
-.media h3 {
-  margin:0 0 2px;        /* 제목과 이미지 간격 최소 */
-  font-size:16px;
-  color:black;
-}
-.media img {
-  display:block;
-  max-width:90%;
-  height:auto;
-  object-fit:contain;
-}
+  /* 미디어 카드 */
+  .media{
+    height:100%; display:flex; flex-direction:column; align-items:center;
+    padding:8px; background:#fff; border-radius:12px; border:1px solid #e5e7eb;
+  }
+  .media img{
+    display:block; width:100%; height:auto; object-fit:contain;
+    max-width:100%;
+  }
   .media small{ color:#6b7ea6; }
 
-.callout {
-  background: #e3eefa;            /* 밝은 배경 */
-  border-left: 4px solid var(--ink); /* 왼쪽 포인트 라인 */
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--ink);
-  text-align: center;
-  line-height: 1.4;
-}
-.callout span {
-  color: rgb(65, 65, 65);
-  font-weight: 400;
-}
-  /* 로고 그리드 */
-  .logos{
-    display:grid; grid-template-columns:repeat(6,1fr); gap:10px;
+  /* 안내 문구 */
+  .callout{
+    background:#e3eefa; border-left:4px solid var(--ink);
+    padding:8px 12px; border-radius:8px; font-size:clamp(13px,2vw,15px);
+    font-weight:600; color:var(--ink); text-align:center; line-height:1.4;
   }
+  .callout span{ color:rgb(65,65,65); font-weight:400; }
+
+  /* 로고 그리드 */
+  .logos{ display:grid; grid-template-columns:repeat(6,1fr); gap:10px; }
+  @media (max-width: 980px){ .logos{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width: 520px){ .logos{ grid-template-columns:repeat(2,1fr); } }
   .logo{
     border:1px solid #edf0f5; border-radius:12px; padding:10px; height:60px; background:#fff;
     display:grid; place-items:center;
   }
-  .logo img{ max-width:90%; max-height:80%; object-fit:contain; }
+  .logo img{ width:100%; height:100%; object-fit:contain; }
 
   /* 하단 바 */
   .footer{
     display:flex; justify-content:space-between; align-items:center; gap:10px;
-    background:#0f2546; color:#dbe6ff; border-radius:14px; padding:12px 16px;
+    background:#0f2546; color:#dbe6ff; border-radius:14px; padding:12px 16px; flex-wrap:wrap;
   }
   .footer .mark{ font-weight:900; color:#fff; }
-  .divider{ height:1px; background:#eef1f5; }
+  .no-print a.btn{ white-space:nowrap; }
 
-  /* 반응형 보정 */
-  @media (max-width: 980px){
-    .hero{ grid-template-columns:1fr; }
-    .grid-2{ grid-template-columns:1fr; }
-    .logos{ grid-template-columns:repeat(3,1fr); }
+  /* 모바일 세부 보정 */
+  @media (max-width: 768px){
+    .badge,.pill{ font-size:11px; padding:4px 8px; }
+    .hero{ padding:16px; }
   }
-
-  
 </style>
 </head>
 <body>
 
 <div class="page">
   <!-- HERO -->
-  <section class="hero">
-      <div>
-       <div style="
-  display: flex;
-  align-items: center;       /* 수직 중앙 정렬 */
-  gap: 16px;                 /* 로고와 문장 사이 간격 */
-  flex-wrap: wrap;           /* 화면 작아지면 줄바꿈 */
-">
+  <section class="hero" role="banner">
+    <div>
+      <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <!-- 로고 박스 -->
+        <div style="
+          display:inline-flex; align-items:center; justify-content:center;
+          background:#fff; padding:8px; border-radius:12px;
+          box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+          <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/logo.png"
+               alt="경북대학교 로고" style="width:150px; max-width:40vw; height:auto; object-fit:contain;" />
+        </div>
+        <!-- 제목 -->
+        <h1 class="headline" style="margin:0;">
+          “기계공학부 졸업생은 국가 주력산업 전반의<br/>
+          기술 경쟁력을 이끄는 핵심 인재로 성장합니다.”
+        </h1>
+      </div>
 
+      <p style="margin-top:8px;">
+        자동차 · 반도체/전기전자 · 에너지(발전/수소/배터리) · 항공/방산 · 로봇/정밀기계 · 조선/해양/중공업 진출.
+        공공기관/연구소 및 대학원 진학까지 다양한 진로를 지원합니다.
+      </p>
 
-  <!-- 문장 -->
-  <h1 class="headline" style="margin: 0;    margin-bottom:10px;">
-   <div style="display: flex; align-items: center; flex-wrap: wrap;">
-
-
-  <!-- 로고 박스 -->
-  <div style="
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    padding: 8px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    margin-right: 50px; /* 오른쪽으로 띄우기 */
-  ">
-    <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/logo.png" 
-         style="max-width: 150px; height: auto; object-fit: contain;" />
-  </div>
-    <h1 class="headline" style="margin: 0;">
-    “기계공학부 졸업생은 국가 주력산업 전반의<br/>
-    기술 경쟁력을 이끄는 핵심 인재로 성장합니다.”
-  </h1>
-</div>
-
-</div>
-      <p>자동차 · 반도체/전기전자 · 에너지(발전/수소/배터리) · 항공/방산 · 로봇/정밀기계 · 조선/해양/중공업 진출.
-         공공기관/연구소 및 대학원 진학까지 다양한 진로를 지원합니다.</p>
-      <div class="cta">
+      <div class="cta" aria-label="주요 지표">
         <span class="badge">취업률 71.4% (졸업생 167명, 2022)</span>
         <span class="pill"><b>대기업</b> 비중 66%</span>
       </div>
     </div>
-
   </section>
 
   <!-- 데이터로 보는 취업 -->
   <section class="section">
     <h2>데이터로 보는 취업분야 · 취업현황</h2>
-    <div class="callout" style="margin-bottom: 10px;">
-         대기업 66% <span>중견 11%, 중소 11%, 공공/공기업 9%… |</span> 반도체· 전자 34% <span>자동차 31%, 에너지 14% …</span>
+    <div class="callout" style="margin-bottom:10px;">
+      대기업 66% <span>중견 11%, 중소 11%, 공공/공기업 9%… |</span> 반도체· 전자 34% <span>자동차 31%, 에너지 14% …</span>
     </div>
-    <div class="grid grid-2">
-       <div class="media" style=" background:white">
-       <h3 style=" text-align: center; margin-bottom:4px">취업 유형</h3>
-       <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/under_emp1.png" style="max-width:90%; height:auto; object-fit:contain;" />
+
+    <div class="grid-2">
+      <div class="media">
+        <h3 style="text-align:center;">취업 유형</h3>
+        <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/under_emp1.png" alt="취업 유형 차트" />
       </div>
-            <div class="media" style="background:white">
-                <h3 style=" text-align: center; margin-bottom:4px">취업 분야</h3>
-            <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/under_emp2.png" style="margin-top:0px; max-width:90%; height:auto; object-fit:contain;" />
-            </div>
+      <div class="media">
+        <h3 style="text-align:center;">취업 분야</h3>
+        <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/under_emp2.png" alt="취업 분야 차트" />
+      </div>
     </div>
-
-   <div class="grid grid-2" style="margin-top: 20px;">
-    </div> 
-
   </section>
 
   <!-- 주요 취업처 -->
   <section class="section" style="padding:16px 16px 12px;">
     <h2>경북대학교 기계공학부 졸업생의 주요 <span style="color:var(--gold)">취업처</span></h2>
     <div class="grid" aria-label="주요 취업처 로고">
-      <!-- 각 칸에 로고 이미지 넣기 -->
-       <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/company.png" style="max-width:100%; height:auto; object-fit:contain;" />
+      <img src="https://raw.githubusercontent.com/knu-me/overview/main/images/brief/company.png" alt="주요 취업처 로고 모음" style="width:100%; height:auto; object-fit:contain;" />
     </div>
   </section>
 
   <!-- 학과 강점/지원 -->
   <section class="section">
     <h2>왜 경북대 기계공학부인가?</h2>
-    <div class="grid grid-3">
+    <div class="grid-3">
       <div class="stat" style="border-style:solid;">
-        <b>산업맞춤 커리큘럼</b>
-        <span class="muted" style="font-size:12px"> 전공별 특화 커리큘럼 (기계공학/설계학/로봇·자동화 전공)</span>
+        <b>커리큘럼</b>
+        <span class="muted" style="font-size:12px;">전공별 특화 커리큘럼 (기계공학/설계학/로봇·자동화 전공)</span>
       </div>
       <div class="stat" style="border-style:solid;">
         <b>연구·진학 <br>연계</b>
-        <span class="muted"style="font-size:12px">국책과제·대학원<br>  진학 멘토링</span>
+        <span class="muted" style="font-size:12px;">국책과제·대학원 진학 멘토링</span>
       </div>
       <div class="stat" style="border-style:solid;">
         <b>커리어 <br>지원</b>
-        <span class="muted"style="font-size:12px">현장실습·캡스톤·기업연계<br> 채용설명회</span>
+        <span class="muted" style="font-size:12px;">현장실습·캡스톤·기업연계 채용설명회</span>
       </div>
     </div>
   </section>
 
-  <div class="divider"></div>
+  <div class="divider" aria-hidden="true"></div>
 
   <!-- 연락처/CTA -->
   <section class="footer">
@@ -275,7 +231,7 @@
       <div class="muted">41566 대구광역시 북구 대학로80(산격동) 경북대학교 공대3호관 311호</div>
     </div>
     <div class="no-print">
-      <a class="btn" href="https://ipsi2.knu.ac.kr/intro/" onclick="window.print()">입학 안내</a>
+      <a class="btn" href="https://ipsi2.knu.ac.kr/intro/" target="_blank" rel="noopener">입학 안내</a>
     </div>
   </section>
 </div>
